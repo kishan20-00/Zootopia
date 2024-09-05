@@ -11,7 +11,7 @@ CORS(app)
 model = tf.keras.models.load_model('model.h5')
 
 label_encoder_X_classes = {}
-for col in ['Animal', 'Symptom 1', 'Symptom 2', 'Symptom 3']:
+for col in ['AnimalName', 'symptoms1', 'symptoms2', 'symptoms3', 'symptoms4', 'symptoms5']:
     label_encoder_X_classes[col] = load(f'label_encoder_{col}_classes.joblib')
 label_encoder_Y_classes = load('label_encoder_Y_classes.joblib')
 
@@ -53,7 +53,7 @@ def predict():
     predicted_class = label_encoder_Y_classes.classes_[predicted_class_index]
     
     # Return the predicted class
-    return jsonify({'predicted_disease': predicted_class})
+    return jsonify({'Is it dangerous': predicted_class})
 
 if __name__ == '__main__':
     app.run(debug=True)
