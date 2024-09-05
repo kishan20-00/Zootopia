@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "751248730983",
+    "project_id": "zootopia-c7454",
+    "storage_bucket": "zootopia-c7454.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751248730983:android:13a2b535224ce9e4635dc2",
+        "android_client_info": {
+          "package_name": "com.zootopia.zootopia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu60bZwtuWb_2iAzbdnUJkoIz9LaLjnaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

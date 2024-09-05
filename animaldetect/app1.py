@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import cv2
+import io
 
 app = Flask(__name__)
 
@@ -11,14 +13,17 @@ model = tf.keras.models.load_model('animal_detect.h5')
 # Define class labels
 class_labels = ["deer", "elephant", "giraffe", "hippopotamus", "horse", "leopard", "lion", "tiger", "zebra"]
 
-# Define route for image classification
-@app.route('/predict', methods=['POST'])
-def predict():
-    # Get image file from request
-    img_file = request.files['image']
-    img = Image.open(img_file)
-    img = img.resize((224, 224))  # Resize image to match model input size
-    img_array = np.array(img) / 255.0  # Normalize image array
+# Define route for real-time video frame classification
+@app.route('/predict_frame', methods=['POST'])
+def predict_frame():
+    # Get video frame from the request
+    file_stream = request.files['image'].read()
+    np_img = np.frombuffer(file_stream, np.uint8)
+    frame = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
+    
+    # Preprocess the frame (resize and normalize)
+    frame_resized = cv2.resize(frame, (224, 224))
+    img_array = np.array(frame_resized) / 255.0  # Normalize image array
     
     # Predict class probabilities
     predictions = model.predict(np.expand_dims(img_array, axis=0))[0]
