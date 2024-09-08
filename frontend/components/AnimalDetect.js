@@ -9,15 +9,14 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
+import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
 
 const Prescription = () => {
   const [image, setImage] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [uploading, setUploading] = useState(false);
 
-  // Function to pick image from the gallery
   const pickImage = async () => {
-    // Request permission to access the image library
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
       Alert.alert('Permission Required', 'You need to grant permission to access the image library.');
@@ -32,9 +31,7 @@ const Prescription = () => {
         quality: 1,
       });
   
-      // Check if the user didn't cancel the image picker
       if (!result.canceled) {
-        // Check if URI is available
         if (result.assets && result.assets.length > 0) {
           const uri = result.assets[0].uri;
           setImage({ uri });
@@ -50,7 +47,7 @@ const Prescription = () => {
       Alert.alert('Error', 'Failed to pick image.');
     }
   };
-  
+
   const uploadImage = async () => {
     if (!image) {
       Alert.alert("No Image Selected", "Please select an image first.");
@@ -83,20 +80,23 @@ const Prescription = () => {
       setUploading(false);
     }
   };
-  
-  
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={pickImage}>
+        <Icon name="photo-library" size={24} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Pick Image</Text>
       </TouchableOpacity>
+
       {image && (
         <Image source={{ uri: image.uri }} style={styles.image} />
       )}
+
       <TouchableOpacity style={styles.button} onPress={uploadImage} disabled={uploading}>
+        <Icon name={uploading ? "upload" : "cloud-upload"} size={24} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>{uploading ? 'Uploading...' : 'Upload Image'}</Text>
       </TouchableOpacity>
+
       {prediction && (
         <View style={styles.predictionContainer}>
           <Text style={styles.predictionText}>
@@ -116,31 +116,55 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#e8f5e9', // Light green background
+    padding: 20,
   },
   button: {
-    backgroundColor: '#FF9DD2',
-    padding: 10,
-    borderRadius: 5,
-    margin: 10,
+    flexDirection: 'row',
+    backgroundColor: '#4CAF50', // Green color for buttons
+    padding: 15,
+    borderRadius: 25,
+    marginVertical: 10,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Elevation for Android shadow
   },
   buttonText: {
-    color: 'black',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  icon: {
+    marginRight: 10,
   },
   image: {
     width: 300,
     height: 300,
-    margin: 10,
+    borderRadius: 10,
+    marginVertical: 20,
   },
   predictionContainer: {
     marginTop: 20,
     alignItems: 'center',
+    backgroundColor: '#f1f8e9', // Slightly lighter green for the prediction box
+    padding: 15,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
   },
   predictionText: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#2b7a0b', // Dark green for prediction text
   },
 });
 

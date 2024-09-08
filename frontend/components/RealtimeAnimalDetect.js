@@ -5,32 +5,28 @@ import axios from 'axios';
 
 export default function RealTimePrediction() {
   const [facing, setFacing] = useState<CameraType>('back');
-  const [permission, requestPermission] = useCameraPermissions(); // Correct destructuring
+  const [permission, requestPermission] = useCameraPermissions();
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
   const [cameraRef, setCameraRef] = useState(null);
 
   if (!permission) {
-    // Camera permissions are still loading.
     return <View />;
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet.
     return (
-      <View style={styles.container}>
-        <Text style={styles.message}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="Grant Permission" />
+      <View style={styles.permissionContainer}>
+        <Text style={styles.permissionMessage}>We need your permission to show the camera</Text>
+        <Button onPress={requestPermission} title="Grant Permission" color="#4CAF50" />
       </View>
     );
   }
 
-  // Toggle camera between front and back
-  function toggleCameraFacing() {
+  const toggleCameraFacing = () => {
     setFacing(current => (current === 'back' ? 'front' : 'back'));
-  }
+  };
 
-  // Predict the frame from the camera
   const predictFrame = async (photo) => {
     try {
       const formData = new FormData();
@@ -52,7 +48,6 @@ export default function RealTimePrediction() {
     }
   };
 
-  // Capture a frame and make a prediction
   const startRealTimePrediction = async () => {
     if (cameraRef) {
       setLoading(true);
@@ -62,11 +57,10 @@ export default function RealTimePrediction() {
     }
   };
 
-  // Automatically capture a frame every second
   useEffect(() => {
     const interval = setInterval(() => {
       startRealTimePrediction();
-    }, 1000); // Adjust this interval as needed
+    }, 1000); 
 
     return () => clearInterval(interval);
   }, [cameraRef]);
@@ -76,7 +70,7 @@ export default function RealTimePrediction() {
       <CameraView
         style={styles.camera}
         facing={facing}
-        ref={(ref) => setCameraRef(ref)} // Capture the reference for CameraView
+        ref={(ref) => setCameraRef(ref)}
       >
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
@@ -85,7 +79,7 @@ export default function RealTimePrediction() {
         </View>
       </CameraView>
 
-      {loading && <ActivityIndicator size="large" color="#00ff00" />}
+      {loading && <ActivityIndicator size="large" color="#4CAF50" />}
       {prediction && (
         <View style={styles.predictionContainer}>
           <Text style={styles.predictionText}>Predicted Class: {prediction.predicted_class}</Text>
@@ -101,40 +95,54 @@ export default function RealTimePrediction() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#e8f5e9', // Light green background
   },
-  message: {
+  permissionContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5', // Light gray background
+    padding: 20,
+  },
+  permissionMessage: {
+    fontSize: 18,
+    color: '#333',
+    marginBottom: 20,
     textAlign: 'center',
-    paddingBottom: 10,
   },
   camera: {
     flex: 1,
   },
   buttonContainer: {
-    flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'transparent',
-    margin: 64,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    padding: 20,
   },
   button: {
-    flex: 1,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
+    backgroundColor: '#4CAF50', // Green color for button
+    padding: 15,
+    borderRadius: 30,
+    elevation: 5, // Elevation for Android shadow
   },
   text: {
-    fontSize: 24,
+    color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
   },
   predictionContainer: {
     position: 'absolute',
     bottom: 50,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    padding: 10,
-    borderRadius: 5,
+    left: 20,
+    right: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent background
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
   },
   predictionText: {
-    color: 'white',
-    fontSize: 18,
+    color: '#fff',
+    fontSize: 16,
+    textAlign: 'center',
   },
 });

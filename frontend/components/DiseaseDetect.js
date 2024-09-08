@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import axios from 'axios';
+import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
 
 const PredictionForm = () => {
   // States for form fields
@@ -41,43 +42,54 @@ const PredictionForm = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Animal Danger Prediction</Text>
+
       <TextInput
         style={styles.input}
         placeholder="Enter Animal Name"
         value={animalName}
         onChangeText={setAnimalName}
+        placeholderTextColor="#9e9e9e" // Placeholder text color
       />
       <TextInput
         style={styles.input}
         placeholder="Enter Symptom 1"
         value={symptom1}
         onChangeText={setSymptom1}
+        placeholderTextColor="#9e9e9e"
       />
       <TextInput
         style={styles.input}
         placeholder="Enter Symptom 2"
         value={symptom2}
         onChangeText={setSymptom2}
+        placeholderTextColor="#9e9e9e"
       />
       <TextInput
         style={styles.input}
         placeholder="Enter Symptom 3"
         value={symptom3}
         onChangeText={setSymptom3}
+        placeholderTextColor="#9e9e9e"
       />
       <TextInput
         style={styles.input}
         placeholder="Enter Symptom 4"
         value={symptom4}
         onChangeText={setSymptom4}
+        placeholderTextColor="#9e9e9e"
       />
       <TextInput
         style={styles.input}
         placeholder="Enter Symptom 5"
         value={symptom5}
         onChangeText={setSymptom5}
+        placeholderTextColor="#9e9e9e"
       />
-      <Button title="Predict" onPress={handleSubmit} />
+
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Icon name="analytics" size={24} color="#fff" style={styles.icon} />
+        <Text style={styles.buttonText}>Predict</Text>
+      </TouchableOpacity>
 
       {prediction && (
         <Text style={styles.result}>Prediction: {prediction}</Text>
@@ -92,27 +104,58 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#e8f5e9', // Light green background
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 30,
     textAlign: 'center',
+    color: '#2b7a0b', // Dark green color for title
   },
   input: {
-    height: 40,
-    borderColor: 'gray',
+    height: 50,
+    borderColor: '#4CAF50', // Green border color
     borderWidth: 1,
     marginBottom: 15,
-    paddingHorizontal: 10,
-    borderRadius: 5,
+    paddingHorizontal: 15,
+    borderRadius: 25, // Rounded corners
+    backgroundColor: '#fff', // White background for inputs
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3, // Elevation for Android shadow
+  },
+  button: {
+    flexDirection: 'row',
+    backgroundColor: '#4CAF50', // Green color for button
+    padding: 15,
+    borderRadius: 30,
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Elevation for Android shadow
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  icon: {
+    marginRight: 10,
   },
   result: {
     marginTop: 20,
-    fontSize: 18,
+    fontSize: 20,
     textAlign: 'center',
-    color: 'green',
+    color: '#2b7a0b', // Dark green color for result text
+    fontWeight: 'bold',
   },
 });
 
