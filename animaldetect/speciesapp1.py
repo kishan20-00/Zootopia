@@ -4,16 +4,14 @@ import numpy as np
 import tensorflow as tf
 import cv2
 import io
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
 
 # Load the trained model
-model = tf.keras.models.load_model('animal_detect.h5')
+model = tf.keras.models.load_model('animal_species_detect.h5')
 
 # Define class labels
-class_labels = ["deer", "elephant", "giraffe", "hippopotamus", "horse", "leopard", "lion", "tiger", "zebra"]
+class_labels = ["elephas_maximus_borneensis", "elephas_maximus_indicus", "elephas_maximus_maximus", "elephas_maximus_sumatranus", "panthera_leo_leo", "panthera_leo_melanochaita", "panthera_onca", "panthera_pardus_delacouri", "panthera_pardus_fusca", "panthera_pardus_kotiya", "panthera_pardus_melas", "panthera_pardus_pardus", "panthera_pardus_tulliana", "panthera_tigris"]
 
 # Define route for real-time video frame classification
 @app.route('/predict_frame', methods=['POST'])
@@ -46,4 +44,4 @@ def predict_frame():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5006)
+    app.run(debug=True)

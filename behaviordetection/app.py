@@ -121,4 +121,4 @@ def make_predictions(video_frames):
     return probabilities
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5008)
