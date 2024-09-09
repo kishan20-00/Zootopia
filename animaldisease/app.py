@@ -10,16 +10,27 @@ CORS(app)
 # Load the trained model
 model = tf.keras.models.load_model('model.h5')
 
+# Load label encoders
 label_encoder_X_classes = {}
-for col in ['AnimalName', 'symptoms1', 'symptoms2', 'symptoms3', 'symptoms4', 'symptoms5']:
+for col in ['AnimalName', 'Symptoms1', 'Symptoms2', 'Symptoms3', 'Symptoms4', 'Symptoms5', 'AnimalGroup', 'DielActivity']:
     label_encoder_X_classes[col] = load(f'label_encoder_{col}_classes.joblib')
 label_encoder_Y_classes = load('label_encoder_Y_classes.joblib')
 
+# Preprocess the input data
 def preprocess_input(input_data):
     encoded_input = []
     for col, value in input_data.items():
-        if col in label_encoder_X_classes:
-            # Use the corresponding LabelEncoder to transform feature variables
+        if col == 'MeanBodyTemperature':
+            # Convert MeanBodyTemperature to float if it's a string
+            if isinstance(value, str):
+                try:
+                    value = float(value)  # Convert string to float
+                except ValueError:
+                    print(f"Could not convert {value} to float for MeanBodyTemperature")
+                    value = np.nan  # Handle invalid values as NaN
+            encoded_input.append(value)
+        elif col in label_encoder_X_classes:
+            # Use LabelEncoder for categorical columns
             label_encoder = label_encoder_X_classes[col]
             try:
                 encoded_value = label_encoder.transform([value])[0]
@@ -32,17 +43,14 @@ def preprocess_input(input_data):
     print("Encoded input:", encoded_input)
     return np.array(encoded_input).reshape(1, -1)
 
-
-
 # Define a route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get data from the request
     input_data = request.json
-
     print(input_data)
     
-    # Preprocess input data for testing
+    # Preprocess the input data
     preprocessed_input = preprocess_input(input_data)
     
     # Make predictions using the trained model

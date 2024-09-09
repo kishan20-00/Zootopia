@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Button, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import { Video } from 'expo-av'; // Import Video component
+import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
 
 const BehaviorDetection = () => {
   const [video, setVideo] = useState(null);
@@ -61,7 +62,10 @@ const BehaviorDetection = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Upload a Video for Prediction</Text>
 
-      <Button title="Pick a Video" onPress={pickVideo} />
+      <TouchableOpacity style={styles.button} onPress={pickVideo}>
+        <Icon name="videocam" size={24} color="#fff" style={styles.icon} />
+        <Text style={styles.buttonText}>Pick a Video</Text>
+      </TouchableOpacity>
 
       {video && video.uri ? (
         <>
@@ -76,16 +80,19 @@ const BehaviorDetection = () => {
             isMuted={false}
             resizeMode="contain"
             shouldPlay
-            style={{ width: '100%', height: 300 }}
+            style={styles.video}
           />
         </>
       ) : (
         <Text style={styles.videoText}>No video selected</Text>
       )}
 
-      <Button title="Upload Video" onPress={uploadVideo} />
+      <TouchableOpacity style={styles.button} onPress={uploadVideo}>
+        <Icon name="cloud-upload" size={24} color="#fff" style={styles.icon} />
+        <Text style={styles.buttonText}>Upload Video</Text>
+      </TouchableOpacity>
 
-      {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
+      {isLoading && <ActivityIndicator size="large" color="#4CAF50" />}
 
       {prediction && (
         <Text style={styles.predictionText}>Prediction: {prediction}</Text>
@@ -100,24 +107,62 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#e8f5e9', // Light green background
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    color: '#2b7a0b', // Dark green color for title
+  },
+  button: {
+    flexDirection: 'row',
+    backgroundColor: '#4CAF50', // Green color for button
+    padding: 15,
+    borderRadius: 30,
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Elevation for Android shadow
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  icon: {
+    marginRight: 10,
+  },
+  video: {
+    width: '100%',
+    height: 300,
+    marginTop: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Elevation for Android shadow
   },
   videoText: {
     marginTop: 15,
     fontSize: 16,
     textAlign: 'center',
+    color: '#2b7a0b', // Dark green color for text
   },
   predictionText: {
     marginTop: 20,
-    fontSize: 18,
-    color: 'green',
+    fontSize: 20,
+    color: '#2b7a0b', // Dark green color for result text
     textAlign: 'center',
+    fontWeight: 'bold',
   },
 });
 

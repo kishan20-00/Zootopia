@@ -6,6 +6,7 @@ import AnimalDetect from './components/AnimalDetect';
 import RealTimePrediction from './components/RealtimeAnimalDetect';
 import PredictionForm from './components/DiseaseDetect';
 import BehaviorDetection from './components/BehaviourDetection';
+import CamaraCapture from './components/CameraCapture';
 
 // Stack Navigator setup
 const Stack = createStackNavigator();
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="realtimeanimaldetect" component={RealTimePrediction} />
         <Stack.Screen name="diseasedetect" component={PredictionForm} />
         <Stack.Screen name="behaviordetect" component={BehaviorDetection} />
+        <Stack.Screen name="camaracapture" component={CamaraCapture} />
       </Stack.Navigator>
     </NavigationContainer>
   );
