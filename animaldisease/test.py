@@ -1,16 +1,19 @@
 import requests
 
 # Define the URL of the Flask app
-url = 'http://127.0.0.1:5000/predict'
+url = 'http://127.0.0.1:5007/predict'
 
 # Example input data
 input_data = {
-    'AnimalName': 'Buffaloes',
-    'symptoms1': 'Indigestion',
-    'symptoms2': 'Infection',
-    'symptoms3': 'Drooling',
-    'symptoms4': 'Appetite',
-    'symptoms5': 'Muscle stiffness'
+    'AnimalName': 'Elephant',
+    'Symptoms1': 'Indigestion',
+    'Symptoms2': 'Infection',
+    'Symptoms3': 'Drooling',
+    'Symptoms4': 'Appetite',
+    'Symptoms5': 'Muscle stiffness',
+    'AnimalGroup': 'Ectotherms',
+    'DielActivity': 'Nocturnal',
+    'MeanBodyTemperature': '41'
 }
 
 # Send a POST request with JSON data to the Flask app

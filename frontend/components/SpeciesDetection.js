@@ -64,7 +64,7 @@ const Prescription = () => {
     });
   
     try {
-      const response = await axios.post('http://192.168.1.100:5005/predict', formData, {
+      const response = await axios.post('http://192.168.1.100:5009/predict', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           accept: 'application/json',

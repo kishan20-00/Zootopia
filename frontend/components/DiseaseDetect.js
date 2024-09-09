@@ -11,17 +11,23 @@ const PredictionForm = () => {
   const [symptom3, setSymptom3] = useState('');
   const [symptom4, setSymptom4] = useState('');
   const [symptom5, setSymptom5] = useState('');
+  const [animalGroup, setAnimalGroup] = useState('');
+  const [dielActivity, setDielActivity] = useState('');
+  const [meanBodyTemperature, setMeanBodyTemperature] = useState('');
   const [prediction, setPrediction] = useState(null);
 
   // Function to handle form submission
   const handleSubmit = () => {
     const inputData = {
       AnimalName: animalName,
-      symptoms1: symptom1,
-      symptoms2: symptom2,
-      symptoms3: symptom3,
-      symptoms4: symptom4,
-      symptoms5: symptom5
+      Symptoms1: symptom1,
+      Symptoms2: symptom2,
+      Symptoms3: symptom3,
+      Symptoms4: symptom4,
+      Symptoms5: symptom5,
+      AnimalGroup: animalGroup,
+      DielActivity: dielActivity,
+      MeanBodyTemperature: meanBodyTemperature,
     };
 
     // Send a POST request to the Flask backend using Axios
@@ -83,6 +89,27 @@ const PredictionForm = () => {
         placeholder="Enter Symptom 5"
         value={symptom5}
         onChangeText={setSymptom5}
+        placeholderTextColor="#9e9e9e"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Animal Group"
+        value={animalGroup}
+        onChangeText={setAnimalGroup}
+        placeholderTextColor="#9e9e9e"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Diel Activity"
+        value={dielActivity}
+        onChangeText={setDielActivity}
+        placeholderTextColor="#9e9e9e"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Temperature"
+        value={meanBodyTemperature}
+        onChangeText={setMeanBodyTemperature}
         placeholderTextColor="#9e9e9e"
       />
 

@@ -1,7 +1,7 @@
 import requests
 
 # Define URL of the Flask API
-url = 'http://127.0.0.1:5000/predict'  # Replace with the actual URL where your Flask API is hosted
+url = 'http://127.0.0.1:5005/predict'  # Replace with the actual URL where your Flask API is hosted
 
 # Define path to the image file
 image_path = 'G:/GitHub/Zootopia/animaldetect/species/elephas_maximus_sumatranus/101991676_a.jpg'  # Replace with the path to your image file
