@@ -40,13 +40,14 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       {/* camara capture */}
-      <TouchableOpacity
+      
+      {/* <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('camaracapture')}
       >
         <Icon name="camera-alt" size={24} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Camara Capture</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

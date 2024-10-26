@@ -1,120 +1,159 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Camera } from 'expo-camera';
-import * as FileSystem from 'expo-file-system';
+import { RNCamera } from 'react-native-camera';
+import { useState, useEffect } from 'react';
+import { Button, StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
-const RealTimePrediction = () => {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [cameraRef, setCameraRef] = useState(null);
-  const [loading, setLoading] = useState(false);
+export default function RealTimePrediction() {
+  const [facing, setFacing] = useState(RNCamera.Constants.Type.back);
+  const [permission, setPermission] = useState(null);
   const [prediction, setPrediction] = useState(null);
-  const [confidence, setConfidence] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [cameraRef, setCameraRef] = useState(null);
 
   useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
+    const requestCameraPermission = async () => {
+      const { status } = await RNCamera.requestPermissionsAsync();
+      setPermission(status === 'granted');
+    };
+
+    requestCameraPermission();
   }, []);
 
-  useEffect(() => {
-    let interval;
-    if (cameraRef) {
-      interval = setInterval(() => {
-        captureFrame();
-      }, 1000); // Capture frame every 1 second
-    }
-    return () => clearInterval(interval);
-  }, [cameraRef]);
+  if (permission === null) {
+    return <View />; // Still requesting permission
+  }
 
-  const captureFrame = async () => {
-    if (cameraRef) {
-      try {
-        setLoading(true);
+  if (!permission) {
+    return (
+      <View style={styles.permissionContainer}>
+        <Text style={styles.permissionMessage}>We need your permission to show the camera</Text>
+        <Button onPress={() => requestCameraPermission()} title="Grant Permission" color="#4CAF50" />
+      </View>
+    );
+  }
 
-        const photo = await cameraRef.takePictureAsync({
-          base64: true,
-          quality: 0.5, // Adjust quality for performance
-        });
+  const toggleCameraFacing = () => {
+    setFacing(current => 
+      current === RNCamera.Constants.Type.back ? RNCamera.Constants.Type.front : RNCamera.Constants.Type.back
+    );
+  };
 
-        // Convert the captured image to form data for Flask API
-        const formData = new FormData();
-        formData.append('image', {
-          uri: photo.uri,
-          type: 'image/jpeg',
-          name: 'frame.jpg',
-        });
+  const predictFrame = async (photo) => {
+    try {
+      const formData = new FormData();
+      formData.append('image', {
+        uri: photo.uri,
+        name: 'frame.jpg',
+        type: 'image/jpeg',
+      });
 
-        // Send frame to the Flask server
-        const response = await axios.post('http://your-flask-server-ip:5006/predict_frame', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
+      const response = await axios.post('http://192.168.1.101:5006/predict_frame', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-        const { predicted_class, confidence } = response.data;
-        setPrediction(predicted_class);
-        setConfidence(confidence);
-      } catch (error) {
-        console.error('Error sending frame:', error);
-      } finally {
-        setLoading(false);
-      }
+      setPrediction(response.data);
+    } catch (error) {
+      console.error('Prediction error:', error.message);
     }
   };
 
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+  const startRealTimePrediction = async () => {
+    if (cameraRef) {
+      setLoading(true);
+      const photo = await cameraRef.takePictureAsync({ quality: 0.5 });
+      await predictFrame(photo);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      startRealTimePrediction();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [cameraRef]);
 
   return (
     <View style={styles.container}>
-      <Camera
-        ref={(ref) => setCameraRef(ref)}
+      <RNCamera
         style={styles.camera}
-        ratio="16:9"
-        type={Camera.Constants.Type.back}
-      />
-      <View style={styles.overlay}>
-        {loading && <ActivityIndicator size="large" color="#fff" />}
-        {prediction ? (
+        type={facing}
+        ref={(ref) => setCameraRef(ref)}
+      >
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+            <Text style={styles.text}>Flip Camera</Text>
+          </TouchableOpacity>
+        </View>
+      </RNCamera>
+
+      {loading && <ActivityIndicator size="large" color="#4CAF50" />}
+      {prediction && (
+        <View style={styles.predictionContainer}>
+          <Text style={styles.predictionText}>Predicted Class: {prediction.predicted_class}</Text>
           <Text style={styles.predictionText}>
-            Animal: {prediction} - Confidence: {(confidence * 100).toFixed(2)}%
+            Confidence: {(prediction.confidence * 100).toFixed(2)}%
           </Text>
-        ) : (
-          <Text style={styles.predictionText}>Awaiting Prediction...</Text>
-        )}
-      </View>
+        </View>
+      )}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#e8f5e9', // Light green background
+  },
+  permissionContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#f5f5f5', // Light gray background
+    padding: 20,
+  },
+  permissionMessage: {
+    fontSize: 18,
+    color: '#333',
+    marginBottom: 20,
+    textAlign: 'center',
   },
   camera: {
-    width: '100%',
-    height: '100%',
+    flex: 1,
   },
-  overlay: {
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    width: '100%',
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
     padding: 20,
+  },
+  button: {
+    backgroundColor: '#4CAF50', // Green color for button
+    padding: 15,
+    borderRadius: 30,
+    elevation: 5, // Elevation for Android shadow
+  },
+  text: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  predictionContainer: {
+    position: 'absolute',
+    bottom: 50,
+    left: 20,
+    right: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Semi-transparent background
+    padding: 15,
+    borderRadius: 10,
     alignItems: 'center',
   },
   predictionText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 16,
+    textAlign: 'center',
   },
 });
-
-export default RealTimePrediction;

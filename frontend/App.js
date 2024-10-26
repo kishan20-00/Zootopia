@@ -20,7 +20,7 @@ export default function App() {
         <Stack.Screen name="realtimeanimaldetect" component={RealTimePrediction} />
         <Stack.Screen name="diseasedetect" component={PredictionForm} />
         <Stack.Screen name="behaviordetect" component={BehaviorDetection} />
-        <Stack.Screen name="camaracapture" component={CamaraCapture} />
+        {/* <Stack.Screen name="camaracapture" component={CamaraCapture} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
