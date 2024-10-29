@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import firebase from '../firebaseConfig';
 
@@ -17,7 +17,9 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Zootopia Sign In</Text>
+      <Image source={require('../assets/logo.png')} style={styles.logo} />
+      <Text style={styles.appName}>ZOOTOPIA</Text>
+      <Text style={styles.title}>Sign In</Text>
 
       <TextInput
         placeholder="Email"
@@ -54,14 +56,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e6f7e6',
+    backgroundColor: '#f0faf4',
     paddingHorizontal: 20,
   },
-  title: {
-    fontSize: 28,
+  logo: {
+    width: 200,
+    height: 200,
+    marginBottom: 15,
+  },
+  appName: {
+    fontSize: 26,
     color: '#2b7a0b',
     fontWeight: 'bold',
-    marginBottom: 40,
+    letterSpacing: 1,
+  },
+  title: {
+    fontSize: 22,
+    color: '#4CAF50',
+    marginTop: 5,
+    marginBottom: 30,
+    fontWeight: '600',
   },
   input: {
     width: '100%',
@@ -89,9 +103,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.3,
     shadowRadius: 2,
-    elevation: 4,
+    elevation: 5,
     marginBottom: 20,
   },
   icon: {
