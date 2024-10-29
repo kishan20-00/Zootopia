@@ -1,120 +1,102 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Camera } from 'expo-camera';
-import * as FileSystem from 'expo-file-system';
-import axios from 'axios';
+import { Camera, CameraType } from 'expo-camera/legacy';
+import { useState, useRef } from 'react';
+import { Button, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 
-const RealTimePrediction = () => {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [cameraRef, setCameraRef] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [prediction, setPrediction] = useState(null);
-  const [confidence, setConfidence] = useState(null);
+export default function RealTimePrediction() {
+  const [type, setType] = useState(CameraType.back);
+  const [permission, requestPermission] = Camera.useCameraPermissions();
+  const [photo, setPhoto] = useState(null); // State to store the captured photo
+  const cameraRef = useRef(null); // Reference to the camera
 
-  useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
-
-  useEffect(() => {
-    let interval;
-    if (cameraRef) {
-      interval = setInterval(() => {
-        captureFrame();
-      }, 1000); // Capture frame every 1 second
-    }
-    return () => clearInterval(interval);
-  }, [cameraRef]);
-
-  const captureFrame = async () => {
-    if (cameraRef) {
-      try {
-        setLoading(true);
-
-        const photo = await cameraRef.takePictureAsync({
-          base64: true,
-          quality: 0.5, // Adjust quality for performance
-        });
-
-        // Convert the captured image to form data for Flask API
-        const formData = new FormData();
-        formData.append('image', {
-          uri: photo.uri,
-          type: 'image/jpeg',
-          name: 'frame.jpg',
-        });
-
-        // Send frame to the Flask server
-        const response = await axios.post('http://your-flask-server-ip:5006/predict_frame', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-
-        const { predicted_class, confidence } = response.data;
-        setPrediction(predicted_class);
-        setConfidence(confidence);
-      } catch (error) {
-        console.error('Error sending frame:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-  };
-
-  if (hasPermission === null) {
+  if (!permission) {
+    // Camera permissions are still loading
     return <View />;
   }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+
+  if (!permission.granted) {
+    // Camera permissions are not granted yet
+    return (
+      <View style={styles.container}>
+        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
+        <Button onPress={requestPermission} title="Grant Permission" />
+      </View>
+    );
+  }
+
+  function toggleCameraType() {
+    setType((current) => (current === CameraType.back ? CameraType.front : CameraType.back));
+  }
+
+  async function takePicture() {
+    if (cameraRef.current) {
+      const photo = await cameraRef.current.takePictureAsync();
+      setPhoto(photo.uri); // Store the photo URI
+      console.log('Photo captured: ', photo.uri); // Log the photo URI
+    }
   }
 
   return (
     <View style={styles.container}>
-      <Camera
-        ref={(ref) => setCameraRef(ref)}
-        style={styles.camera}
-        ratio="16:9"
-        type={Camera.Constants.Type.back}
-      />
-      <View style={styles.overlay}>
-        {loading && <ActivityIndicator size="large" color="#fff" />}
-        {prediction ? (
-          <Text style={styles.predictionText}>
-            Animal: {prediction} - Confidence: {(confidence * 100).toFixed(2)}%
-          </Text>
-        ) : (
-          <Text style={styles.predictionText}>Awaiting Prediction...</Text>
-        )}
-      </View>
+      {photo ? (
+        // Display the captured photo
+        <View style={styles.previewContainer}>
+          <Text style={styles.previewText}>Captured Photo:</Text>
+          <Image source={{ uri: photo }} style={styles.previewImage} />
+          <Button title="Retake" onPress={() => setPhoto(null)} />
+        </View>
+      ) : (
+        // Display the camera if no photo is captured yet
+        <Camera style={styles.camera} type={type} ref={cameraRef}>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
+              <Text style={styles.text}>Flip Camera</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={takePicture}>
+              <Text style={styles.text}>Take Picture</Text>
+            </TouchableOpacity>
+          </View>
+        </Camera>
+      )}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
   },
   camera: {
-    width: '100%',
-    height: '100%',
+    flex: 1,
   },
-  overlay: {
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    width: '100%',
-    padding: 20,
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'transparent',
+    margin: 64,
+  },
+  button: {
+    flex: 1,
+    alignSelf: 'flex-end',
     alignItems: 'center',
   },
-  predictionText: {
-    color: '#fff',
+  text: {
     fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  previewContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  previewText: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  previewImage: {
+    width: 300,
+    height: 400,
+    borderRadius: 10,
   },
 });
-
-export default RealTimePrediction;
