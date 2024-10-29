@@ -9,6 +9,7 @@ import BehaviorDetection from './components/BehaviourDetection';
 import CamaraCapture from './components/CameraCapture';
 import LoginScreen from './components/LoginScreen';
 import RegisterScreen from './components/RegisterScreen';
+import RealTimeBehaviorPrediction from './components/RealtimeBehaviorDetect';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="realtimeanimaldetect" component={RealTimePrediction} />
         <Stack.Screen name="diseasedetect" component={PredictionForm} />
         <Stack.Screen name="behaviordetect" component={BehaviorDetection} />
+        <Stack.Screen name="realtimebehaviordetect" component={RealTimeBehaviorPrediction} />
       </Stack.Navigator>
     </NavigationContainer>
   );

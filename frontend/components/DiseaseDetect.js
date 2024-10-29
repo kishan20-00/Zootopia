@@ -6,37 +6,26 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
 const PredictionForm = () => {
   // States for form fields
   const [animalName, setAnimalName] = useState('');
-  const [symptom1, setSymptom1] = useState('');
-  const [symptom2, setSymptom2] = useState('');
-  const [symptom3, setSymptom3] = useState('');
-  const [symptom4, setSymptom4] = useState('');
-  const [symptom5, setSymptom5] = useState('');
   const [animalGroup, setAnimalGroup] = useState('');
   const [dielActivity, setDielActivity] = useState('');
   const [meanBodyTemperature, setMeanBodyTemperature] = useState('');
-  const [prediction, setPrediction] = useState(null);
+  const [predictions, setPredictions] = useState({});
 
   // Function to handle form submission
   const handleSubmit = () => {
     const inputData = {
       AnimalName: animalName,
-      Symptoms1: symptom1,
-      Symptoms2: symptom2,
-      Symptoms3: symptom3,
-      Symptoms4: symptom4,
-      Symptoms5: symptom5,
       AnimalGroup: animalGroup,
       DielActivity: dielActivity,
-      MeanBodyTemperature: meanBodyTemperature,
+      MeanBodyTemperature: parseFloat(meanBodyTemperature), // Ensure this is a float
     };
 
     // Send a POST request to the Flask backend using Axios
     axios.post('http://192.168.1.100:5007/predict', inputData)
       .then((response) => {
-        // Handle success, showing the prediction
-        const result = response.data['Is it dangerous'];
-        setPrediction(result);
-        Alert.alert("Prediction", `Is it dangerous: ${result}`);
+        // Handle success, showing the predictions
+        setPredictions(response.data);
+        Alert.alert("Predictions", JSON.stringify(response.data, null, 2));
       })
       .catch((error) => {
         // Handle error
@@ -58,41 +47,6 @@ const PredictionForm = () => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Enter Symptom 1"
-        value={symptom1}
-        onChangeText={setSymptom1}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 2"
-        value={symptom2}
-        onChangeText={setSymptom2}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 3"
-        value={symptom3}
-        onChangeText={setSymptom3}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 4"
-        value={symptom4}
-        onChangeText={setSymptom4}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 5"
-        value={symptom5}
-        onChangeText={setSymptom5}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
         placeholder="Enter Animal Group"
         value={animalGroup}
         onChangeText={setAnimalGroup}
@@ -107,10 +61,11 @@ const PredictionForm = () => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Enter Temperature"
+        placeholder="Enter Mean Body Temperature"
         value={meanBodyTemperature}
         onChangeText={setMeanBodyTemperature}
         placeholderTextColor="#9e9e9e"
+        keyboardType="numeric" // Show numeric keyboard for temperature input
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
@@ -118,8 +73,15 @@ const PredictionForm = () => {
         <Text style={styles.buttonText}>Predict</Text>
       </TouchableOpacity>
 
-      {prediction && (
-        <Text style={styles.result}>Prediction: {prediction}</Text>
+      {Object.keys(predictions).length > 0 && (
+        <View style={styles.resultContainer}>
+          <Text style={styles.resultTitle}>Predictions:</Text>
+          {Object.entries(predictions).map(([key, value]) => (
+            <Text key={key} style={styles.result}>
+              {key}: {value}
+            </Text>
+          ))}
+        </View>
       )}
     </View>
   );
@@ -174,15 +136,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 10,
   },
-  icon: {
-    marginRight: 10,
+  resultContainer: {
+    marginTop: 20,
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: '#f0f8ff', // Light background for results
+  },
+  resultTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
   },
   result: {
-    marginTop: 20,
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
-    color: '#2b7a0b', // Dark green color for result text
-    fontWeight: 'bold',
+  },
+  icon: {
+    marginRight: 10,
   },
 });
 

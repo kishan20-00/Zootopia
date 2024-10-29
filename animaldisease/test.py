@@ -1,29 +1,23 @@
 import requests
 
 # Define the URL of the Flask app
-url = 'http://127.0.0.1:5007/predict'
+url = 'http://127.0.0.1:5007/predict'  # Change the IP and port if necessary
 
-# Example input data
+# Define the input data for prediction
 input_data = {
     'AnimalName': 'Elephant',
-    'Symptoms1': 'Indigestion',
-    'Symptoms2': 'Infection',
-    'Symptoms3': 'Drooling',
-    'Symptoms4': 'Appetite',
-    'Symptoms5': 'Muscle stiffness',
     'AnimalGroup': 'Ectotherms',
     'DielActivity': 'Nocturnal',
-    'MeanBodyTemperature': '41'
+    'MeanBodyTemperature': 41.5
 }
 
-# Send a POST request with JSON data to the Flask app
+# Send a POST request to the Flask app
 response = requests.post(url, json=input_data)
 
-# Check if the request was successful
+# Check the response
 if response.status_code == 200:
-    # Get the predicted class from the response
-    predicted_class = response.json()['Is it dangerous']
-    print('Predicted Disease:', predicted_class)
+    # Print the predictions
+    predictions = response.json()
+    print("Predictions:", predictions)
 else:
-    print('Error:', response.status_code)
-
+    print("Error:", response.status_code, response.text)
