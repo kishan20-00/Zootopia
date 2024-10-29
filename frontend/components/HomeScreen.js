@@ -46,6 +46,14 @@ const HomeScreen = ({ navigation }) => {
         <Text style={styles.buttonText}>Behavior Detect</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('realtimebehaviordetect')}
+      >
+        <Icon name="psychology" size={24} color="#fff" style={styles.icon} />
+        <Text style={styles.buttonText}>Real Time Behavior Detect</Text>
+      </TouchableOpacity>
+
       {/* camara capture */}
       
       {/* <TouchableOpacity

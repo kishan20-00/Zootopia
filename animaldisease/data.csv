@@ -1,0 +1,428 @@
+AnimalName,Symptoms1,Symptoms2,Symptoms3,Symptoms4,Symptoms5,AnimalGroup,Diel Activity,Mean Body Temperature (°C),Dangerous
+Birds,Liquid Dropping,Exhaustion,Ataxia,Lethargy,Seizures,Aves,Diurnal,41.5 °C,Yes
+Birds,Bony Lesion,Skin Rashes,Ataxia,Anorexia,Weakness,Aves,Diurnal,41.5 °C,Yes
+Birds,Legness,Paresis,Coughing,Weight loss,Shortness of breath,Aves,Diurnal,41.5 °C,Yes
+Birds,Fluffed Feather,Loss of appetite,Coughing,Vomiting,Snoring,Aves,Diurnal,41.5 °C,Yes
+Birds,Skin infection,Secondary Infection,Coughing,Depression,Shaking oh head,Aves,Diurnal,41.5 °C,Yes
+Birds,Discharge From eyes,Lethargy,Coughing,Sneezing,Fatique,Aves,Diurnal,41.5 °C,Yes
+Birds,Feather Loss,Feather Plucking,Coughing,Itching,Nasal Discharge,Aves,Diurnal,41.5 °C,Yes
+Birds,Pale comb,Lame,Death,Swolling of joint,Eye closed,Aves,Diurnal,41.5 °C,Yes
+Birds,Lethargy,Loss of appetite,Difficulty in Swallowing,Weakness,Vision Problem,Aves,Diurnal,41.5 °C,Yes
+Birds,Apathy,Depression,Dilation of duodenum,Cloacal pasting,Congestion,Aves,Diurnal,41.5 °C,Yes
+Birds,Fever,Loss of appetite,Ear infection,Depression,Nasal Discharge,Aves,Diurnal,41.5 °C,Yes
+Birds,Sharp Feather,Clubbed Feather,Eye disharge,Loss of powder down,Diarrhea,Aves,Diurnal,41.5 °C,Yes
+Birds,Puffed up Feather,Less Eat,Headache,Half-closed eye,Seizures,Aves,Diurnal,41.5 °C,Yes
+Birds,Tremor of head and neck,Blindness,Kicking at the belly,Exercise in tolerance,Pains,Aves,Diurnal,41.5 °C,Yes
+Birds,Enlarged Thymus,Obstructed Lungs,Lethargy,Skin rashes,Weight loss,Aves,Diurnal,41.5 °C,Yes
+Birds,Tail Wagging,Straining,Lethargy,Weakness,Diarrhea,Aves,Diurnal,41.5 °C,Yes
+Birds,Undigested in their feces,Loss of Appetite,Loss of pigment,Weakness,Bloody in feather,Aves,Diurnal,41.5 °C,Yes
+Birds,Fever,Sour Throat,Mortality,Muscle aches,Abnormalities,Aves,Diurnal,41.5 °C,Yes
+Birds,Balance problem,Abdominal destention,Neck Paralysis,Weight loss,Pains,Aves,Diurnal,41.5 °C,Yes
+Birds,Fever,Chills,Retarded Growth,Chest Pain,Chest Pain,Aves,Diurnal,41.5 °C,Yes
+Birds,Lack of walking,Lack of flying,Roughened,Dehydration,Pains,Aves,Diurnal,41.5 °C,Yes
+Birds,Stripped remiges,Less Feather growth,Ruffled feathers,Defienciency in vitamin,Diarrhea,Aves,Diurnal,41.5 °C,Yes
+Birds,Overweight,Loss of Appetite,Ruffled feathers,Depression,Diarrhea,Aves,Diurnal,41.5 °C,Yes
+Birds,Sinuses,Swollen Eyelids,Skin rashes,Sneezing,Misshapen Beak,Aves,Diurnal,41.5 °C,Yes
+Birds,Dejection,Loss of Appetite,Stress,Coughing,Pains,Aves,Diurnal,41.5 °C,Yes
+Birds,Skin rashes,Small and yellow bumps,Swelling,Dry Scabs,Lameness,Aves,Diurnal,41.5 °C,Yes
+Birds,Fever,Diarrhea,Swollen Abdomen,Vomiting,Difficulty in Breathing,Aves,Diurnal,41.5 °C,Yes
+Birds,Heavy Breathing,Yellow in beak,Tail Bobbing,Weakness,Sleeping Excessively,Aves,Diurnal,41.5 °C,Yes
+Birds,Scabs On feet,Redness,Trachea,Thickening of skin,Pains,Aves,Diurnal,41.5 °C,Yes
+Birds,Inappentence,Diarrhea,Tremors of the head,Dehydration,Weight loss,Aves,Diurnal,41.5 °C,Yes
+Birds,Lepatomegaly,Splenomegaly,Vomiting,Swollen,Shaking oh head,Aves,Diurnal,41.5 °C,Yes
+Birds,Emaciation,Difficulty in breathing,Vomiting,Weakness,Diarrhea,Aves,Diurnal,41.5 °C,Yes
+Birds,Ruffled Appearance,Loss of Appetite,Vomiting,Green Dropping,Nasal Discharge,Aves,Diurnal,41.5 °C,Yes
+Birds,Difficulty in feeding,Preening,Weakness,Beak overgrowth,Anemia,Aves,Diurnal,41.5 °C,Yes
+Birds,Forthy eye,Torticollis,Weakness,Swelling,Emaciation,Aves,Diurnal,41.5 °C,Yes
+Birds,Watery Eyes,Eye closed,Weight loss,Sneezing,Nervous Issue,Aves,Diurnal,41.5 °C,Yes
+Birds,Fever,Difficultty in Breathing,Yellow Eye,Sneezing,Diphtherictic,Aves,Diurnal,41.5 °C,Yes
+Black-tailed deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+cat,Shaking head,Scartching ear,Black on ear,Bad smell,Red and inflammation ear,Mammals,Diurnal,37.3 °C,Yes
+cat,Gasc,Loss of  appetite,Blood in stool,Stomach growling,Black stool,Mammals,Diurnal,37.3 °C,Yes
+cat,Convulsion,Loss of consciousness,chewing,Twitching,Salivating,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Eye ulcer,Congestion,Depression,Pink eye,Mammals,Diurnal,37.3 °C,Yes
+cat,Attacks,Loss of  appetite,Coughing,Weight loss,Periodic vommiting,Mammals,Diurnal,37.3 °C,Yes
+cat,Blood stool,Diarrhea,Coughing,Weight loss,Anemia,Mammals,Diurnal,37.3 °C,Yes
+cat,Wheezing,Rapid Breathing,Coughing,Swallowing,Effort to breath,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Mild sneezing,Coughing,Nasal,Ocular discharge,Mammals,Diurnal,37.3 °C,Yes
+cat,Pnemonia,Loss of  appetite,Eye disharge,Lameness,Arthritis,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Loss of appetite,Eyeproblem,Liver disease,Nuerological,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Seizures,Hydrophobia,Jaw is dropped,Shyness or aggression,Mammals,Diurnal,37.3 °C,Yes
+cat,Nasal discharge,Nosebleeds,inflamed nostrils,Sneezing,Lound breathing,Mammals,Diurnal,37.3 °C,Yes
+cat,Sensitivity to bright light,Disharge from affected eye,Inflammation,Clouded cornea,Rubbing eye,Mammals,Diurnal,37.3 °C,Yes
+cat,Floopy muscle,Speech delay,Intellectual disability,Walking problem,Eye movements,Mammals,Diurnal,37.3 °C,Yes
+cat,Loss of eat,Fell unwell,Lethargy,Weight loss,Skin issue,Mammals,Diurnal,37.3 °C,Yes
+cat,Jaundice,Weekness,Lethargy,Weight loss,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+cat,Skin irritation,Scartching,Lethargy,Hair loss,Excessive grooming,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Swelling  in the bite area,Lethargy,Limp,Pain,Mammals,Diurnal,37.3 °C,Yes
+cat,Lession on cat skin,Dandruff in cat coat,Red patches,Hair loss,Skin issue,Mammals,Diurnal,37.3 °C,Yes
+cat,Ulcers,Lesions,Scabs,Lumps,"Bumps(black,grey or red)",Mammals,Diurnal,37.3 °C,Yes
+cat,Scaly patches of skin,Sore,Scabs,Scartch,Hair loss,Mammals,Diurnal,37.3 °C,Yes
+cat,Jaundice,Difficulty in breathing,Seizuers,Lethargy,Pale gums,Mammals,Diurnal,37.3 °C,Yes
+cat,Loss of eat,Difficulty in breathing,Swelling,Lameness,Neurologic abnormalities,Mammals,Diurnal,37.3 °C,Yes
+cat,Nasal Bleeding,Diffulty chewing,Swelling,Weight loss,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+cat,Tenderness,Erythema,Swelling,Scartch,Pain,Mammals,Diurnal,37.3 °C,Yes
+cat,Bloody Urine,Diffculty breathing,Vomiting,Weight loss,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+cat,Dark or black face,Diarrhea,Vomiting,Blood in faces,Pain,Mammals,Diurnal,37.3 °C,Yes
+cat,Appetite varies,Diarrhea,Vomiting,Weight loss,Pain,Mammals,Diurnal,37.3 °C,Yes
+cat,Sickness,Loss of  appetite,Vomiting,Weight loss,Raised growth or bump,Mammals,Diurnal,37.3 °C,Yes
+cat,Polyuria,Loss of  appetite,Vomiting,Weight loss,Polydipsa,Mammals,Diurnal,37.3 °C,Yes
+cat,Exessive Urination,Change in gait,Vomiting,Weight loss,Inability to jump,Mammals,Diurnal,37.3 °C,Yes
+cat,Lethargy,Diarrhea,Vomiting,Discharge from eye,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Diarrhea,Vomiting,Cramps,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+cat,Fever,Diarrhea,Vomiting,Salivation,Decrease appetite,Mammals,Diurnal,37.3 °C,Yes
+cat,Fatty stool,Diarrhea,Vomiting,Weight loss,Pain,Mammals,Diurnal,37.3 °C,Yes
+cat,Nausea,Loss of appetite,Vomiting,Firm,Distended stomach,Mammals,Diurnal,37.3 °C,Yes
+Deer,Gas,Diarrhea,Abdominal discomfort,Vomiting,Nausea,Mammals,Diurnal,37.3 °C,Yes
+Deer,Difficulty in breathing,swelling problem,bleeding from wounds,frequent yawning,anorexia,Mammals,Diurnal,37.3 °C,Yes
+Deer,eye discharges,nasal discharge,change their normal behaviour,high body temperature,lameness,Mammals,Diurnal,37.3 °C,Yes
+Deer,stop eating,stop drinking,change their normal behaviour,Lameness,Pains,Mammals,Diurnal,37.3 °C,Yes
+Deer,stop eating,stop drinking,change their normal behaviour,Weight loss,Pains,Mammals,Diurnal,37.3 °C,Yes
+Deer,stop eating,stop drinking,change their normal behaviour,Depression,Pains,Mammals,Diurnal,37.3 °C,Yes
+Deer,Fever,Diarrhea,Decreased appetite,Vomiting,Bloody,Mammals,Diurnal,37.3 °C,Yes
+Deer,sudden death,high temperature,difficulty breating,Weight loss,trembling,Mammals,Diurnal,37.3 °C,Yes
+Deer,feline infections,lymphosarcoma,difficulty breating,stomatitis,anaemia,Mammals,Diurnal,37.3 °C,Yes
+Deer,sudden death,high temperature,difficulty breating,Weight loss,trembling,Mammals,Diurnal,37.3 °C,Yes
+Deer,sudden death,high temperature,difficulty breating,Aneamia,trembling,Mammals,Diurnal,37.3 °C,Yes
+Deer,sudden death,high temperature,difficulty breating,Staggering,trembling,Mammals,Diurnal,37.3 °C,Yes
+Deer,changed gait,dull ness,diffuse,difficulty diagnosis,Anemia,Mammals,Diurnal,37.3 °C,Yes
+Deer,Drooping ears,Lack of coordination,Drooling,Wasting,Listlessness,Mammals,Diurnal,37.3 °C,Yes
+Deer,swelling,nasal discharge,drooling,tiredness,fever,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,Fever,drooling,drooping ears,Mammals,Diurnal,37.3 °C,Yes
+Deer,weight loss,dull ness,inappetence,self-isolation,recumbency,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,drooping ears,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,undernutrition,drinking polluted water,listlessness,Staggering,anorexia,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,drooping ears,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,drooping ears,Mammals,Diurnal,37.3 °C,Yes
+Deer,wasting,stumbling,listlessness,drooling,drooping ears,Mammals,Diurnal,37.3 °C,Yes
+Deer,weight loss,dull ness,muscles problem,self-isolation,recumbency,Mammals,Diurnal,37.3 °C,Yes
+Deer,changed gait,dull ness,muscles problem,Pain,Pains,Mammals,Diurnal,37.3 °C,Yes
+Deer,sudden death,high temperature,rapid pulse and heart rates,Depression,trembling,Mammals,Diurnal,37.3 °C,Yes
+Deer,fever,loss of appetite,rapid pulse and heart rates,lameness in affected leg,depression,Mammals,Diurnal,37.3 °C,Yes
+Deer,fever,loss of appetite,rapid pulse and heart rates,lameness in affected leg,depression,Mammals,Diurnal,37.3 °C,Yes
+Deer,fever,loss of appetite,rapid pulse and heart rates,lameness in affected leg,depression,Mammals,Diurnal,37.3 °C,Yes
+Deer,Fever,Tiredness,Swollen kidney,Hematuria,Muscle aches,Mammals,Diurnal,37.3 °C,Yes
+Deer,fever,loss of appetite,swollen teats,lameness in affected leg,depression,Mammals,Diurnal,37.3 °C,Yes
+Deer,Fever,Severe headache,Vomiting,Coughing,Fatique,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Diarrhea,Abdominal pain,Stiffness,Severe weekness and depression,Mammals,Diurnal,37.3 °C,Yes
+Dog,Swollen lymph nodes,Difficulty walking,Back Pain,Lethargy,Vaginal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Diarrhea,Coughing,Tiredness,Pains,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Diarrhea,Coughing,Vomiting,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Difficulty breathing,Coughing,Lethargy,Sneezing,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Diarrhea,Coughing,Lethargy,Blue Eye,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Inflammed eye,Coughing,Depression,Limping,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Difficulty breathing,Coughing,Eye and Skin change,Unable to exercise,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Loss of  appetite,Coughing,Lethargy,Joint Pain,Mammals,Diurnal,37.3 °C,Yes
+Dog,Upset stomach,Diarrhea,Coughing,Weight loss,Anaemia,Mammals,Diurnal,37.3 °C,Yes
+Dog,Allergic Reaction,Poor appetite,Coughing,Weight loss,Distended chest,Mammals,Diurnal,37.3 °C,Yes
+Dog,Hair loss,Dandruff,Darkened skin,Crusting of the skin,Ulcerated skin,Mammals,Diurnal,37.3 °C,Yes
+Dog,Facial Swelling,Bloody Drool,Foul Breath,Unable To Eat,Lossened Teeth,Mammals,Diurnal,37.3 °C,Yes
+Dog,Jaundice,PneumoniaÂ ,Lession on the skin,pain ,Vomitting,Mammals,Diurnal,37.3 °C,Yes
+Dog,Swelling on leg,Painfull,Nasal Discharge,Broken Bones,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Dog,Lesions in the nasal cavity,Lesions on nose,Nose Bleeds,Noisy Breathing,Lesions on nose,Mammals,Diurnal,37.3 °C,Yes
+Dog,Ulcers,Diarrhea,Poor Appetite,Tarry Stool,Enlarged lymph nodes,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Chronic eye inflamation,Poor Appetite,Lethargy,Neurologic abnormalities,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Swelling of face or leg,Poor Appetite,Depression,Pains,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Diarrhea,Poor Appetite,Weight loss,Vomitting,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Loss of  appetite,Reduce Energy,Lameness,Swelling of joints,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Respiratory distress,Seizuers,Hyperesthesia,Sudden death,Mammals,Diurnal,37.3 °C,Yes
+Dog,Strong cough,Runny nose,Sneezing,Lethargy,Loss of appettite,Mammals,Diurnal,37.3 °C,Yes
+Dog,Greenish-yellow nasal discharge,Lack of pigmentation,Sneezing,Lethargy,Pain on face,Mammals,Diurnal,37.3 °C,Yes
+Dog,Limping,Willnot run to jump,Swelling,Week legs,Pain on leg,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Difficulty breathing,Thrist and urination,Weight loss,Enlarged lymph nodes or Swelling,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Diarrhea,Vomiting,Weight loss,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+Dog,Poor coat apperence,Diarrhea,Vomiting,Weight loss,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+Dog,Watering,No appp,Vomiting,Lethargy,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+Dog,Straining,Diarrhea,Vomiting,Weight loss,Blindness,Mammals,Diurnal,37.3 °C,Yes
+Dog,Upset stomach,Diarrhea,Vomiting,Muscle pain,Muscle stiffness,Mammals,Diurnal,37.3 °C,Yes
+Dog,Diarrhea with muscus,Tensemus,Watery Stool,Flatulence,Pains,Mammals,Diurnal,37.3 °C,Yes
+Dog,Short term lethargy,Loss of  appetite,Weekness in the back legs,Rapid Heart Rate,Week pulse,Mammals,Diurnal,37.3 °C,Yes
+Dog,Fever,Anoxeria,Weight loss,Lethargy,Pain,Mammals,Diurnal,37.3 °C,Yes
+Dogs,stop eating,stop drinking,change their normal behaviour,Lameness,Pains,Mammals,Diurnal,37.3 °C,Yes
+Duck,Fever,Diarrhea,Abdominal pain,Stiffness,Severe weekness and depression,Aves,Diurnal,41.5 °C,Yes
+Duck,Swollen lymph nodes,Difficulty walking,Back Pain,Lethargy,Vaginal Discharge,Aves,Diurnal,41.5 °C,Yes
+Duck,Shaking head,Scartching ear,Black on ear,Bad smell,Red and inflammation ear,Aves,Diurnal,41.5 °C,Yes
+Duck,Gasc,Loss of  appetite,Blood in stool,Stomach growling,Black stool,Aves,Diurnal,41.5 °C,Yes
+Duck,Shortness of breath,Fatigue,chirping,loss of appetite,swollen abdomen,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Eye ulcer,Congestion,Depression,Pink eye,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Diarrhea,Coughing,Tiredness,Pains,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Diarrhea,Coughing,Vomiting,Anorexia,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Difficulty breathing,Coughing,Lethargy,Sneezing,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Diarrhea,Coughing,Lethargy,Blue Eye,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Inflammed eye,Coughing,Depression,Limping,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Difficulty breathing,Coughing,Eye and Skin change,Unable to exercise,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Loss of  appetite,Coughing,Lethargy,Joint Pain,Aves,Diurnal,41.5 °C,Yes
+Duck,Upset stomach,Diarrhea,Coughing,Weight loss,Anaemia,Aves,Diurnal,41.5 °C,Yes
+Duck,Allergic Reaction,Poor appetite,Coughing,Weight loss,Distended chest,Aves,Diurnal,41.5 °C,Yes
+Duck,Attacks,Loss of  appetite,Coughing,Weight loss,Periodic vommiting,Aves,Diurnal,41.5 °C,Yes
+Duck,Hair loss,Dandruff,Darkened skin,Crusting of the skin,Ulcerated skin,Aves,Diurnal,41.5 °C,Yes
+Duck,difficulty swallowing,coughÂ ,difficulty swallowing,gasping for air,extending its neck,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Diffulty Swallowing,Excessive drooling,Staggering,Seizures,Aves,Diurnal,41.5 °C,Yes
+Duck,Pnemonia,Loss of  appetite,Eye disharge,Lameness,Arthritis,Aves,Diurnal,41.5 °C,Yes
+Duck,Facial Swelling,Bloody Drool,Foul Breath,Unable To Eat,Lossened Teeth,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Seizures,Hydrophobia,Jaw is dropped,Shyness or aggression,Aves,Diurnal,41.5 °C,Yes
+Duck,loss of appetite,high body temperaure,lack of appetite,diarrhea,sudden death,Aves,Diurnal,41.5 °C,Yes
+Duck,Jaundice,PneumoniaÂ ,Lession on the skin,pain,Vomitting,Aves,Diurnal,41.5 °C,Yes
+Duck,Loss of eat,Fell unwell,Lethargy,Weight loss,Skin issue,Aves,Diurnal,41.5 °C,Yes
+Duck,Extreme thirst,bloody discharge,Loss of appetite,inability to fly,loss ofÂ wariness,Aves,Diurnal,41.5 °C,Yes
+Duck,burning ache or pain,vomiting,loss of appetite,experiencing changes in weight,Â pain and bloating,Aves,Diurnal,41.5 °C,Yes
+Duck,Bleeding from other parts of the body,confusion,Nasal discharge,loss of alertness,dizziness and fainting,Aves,Diurnal,41.5 °C,Yes
+Duck,Swelling on leg,Painfull,Nasal Discharge,Broken Bones,Nasal Discharge,Aves,Diurnal,41.5 °C,Yes
+Duck,Lesions in the nasal cavity,Lesions on nose,Nose Bleeds,Noisy Breathing,Lesions on nose,Aves,Diurnal,41.5 °C,Yes
+Duck,Ulcers,Diarrhea,Poor Appetite,Tarry Stool,Enlarged lymph nodes,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Chronic eye inflamation,Poor Appetite,Lethargy,Neurologic abnormalities,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Swelling of face or leg,Poor Appetite,Depression,Pains,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Diarrhea,Poor Appetite,Weight loss,Vomitting,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Loss of  appetite,Reduce Energy,Lameness,Swelling of joints,Aves,Diurnal,41.5 °C,Yes
+Duck,Ulcers,Lesions ,Scabs,Lumps,"Bumps(black,grey or red)",Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Respiratory distress,Seizuers,Hyperesthesia,Sudden death,Aves,Diurnal,41.5 °C,Yes
+Duck,Jaundice,Difficulty in breathing,Seizuers,Lethargy,Pale gums,Aves,Diurnal,41.5 °C,Yes
+Duck,Strong cough,Runny nose,Sneezing,Lethargy,Loss of appettite,Aves,Diurnal,41.5 °C,Yes
+Duck,Greenish-yellow nasal discharge,Lack of pigmentation,Sneezing,Lethargy,Pain on face,Aves,Diurnal,41.5 °C,Yes
+Duck,Limping,Willnot run to jump,Swelling,Week legs,Pain on leg,Aves,Diurnal,41.5 °C,Yes
+Duck,Loss of eat,Difficulty in breathing,Swelling,Lameness,Neurologic abnormalities,Aves,Diurnal,41.5 °C,Yes
+Duck,Nasal Bleeding,Diffulty chewing,Swelling,Weight loss,Anorexia,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Difficulty breathing,Thrist and urination,Weight loss,Enlarged lymph nodes or Swelling,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Diarrhea,Vomiting,Weight loss,Dehydration,Aves,Diurnal,41.5 °C,Yes
+Duck,Poor coat apperence,Diarrhea,Vomiting,Weight loss,Dehydration,Aves,Diurnal,41.5 °C,Yes
+Duck,Watering,No appp,Vomiting,Lethargy,Dehydration,Aves,Diurnal,41.5 °C,Yes
+Duck,Straining,Diarrhea,Vomiting,Weight loss,Blindness,Aves,Diurnal,41.5 °C,Yes
+Duck,Upset stomach,Diarrhea,Vomiting,Muscle pain,Muscle stiffness,Aves,Diurnal,41.5 °C,Yes
+Duck,Bloody Urine,Diffculty breathing,Vomiting,Weight loss,Anorexia,Aves,Diurnal,41.5 °C,Yes
+Duck,Dark or black face,Diarrhea,Vomiting,Blood in faces,Pain,Aves,Diurnal,41.5 °C,Yes
+Duck,Appetite varies,Diarrhea,Vomiting,Weight loss,Pain,Aves,Diurnal,41.5 °C,Yes
+Duck,Sickness,Loss of  appetite,Vomiting,Weight loss,Raised growth or bump,Aves,Diurnal,41.5 °C,Yes
+Duck,Diarrhea with muscus,Tensemus,Watery Stool,Flatulence,Pains,Aves,Diurnal,41.5 °C,Yes
+Duck,Excessive eye watering,Eye redness,weakness,Mucus discharge from the eye,Frequent eye Infections,Aves,Diurnal,41.5 °C,Yes
+Duck,Short term lethargy,Loss of  appetite,Weekness in the back legs,Rapid Heart Rate,Week pulse,Aves,Diurnal,41.5 °C,Yes
+Duck,Fever,Anoxeria,Weight loss,Lethargy,Pain,Aves,Diurnal,41.5 °C,Yes
+Elephant,Rhinitis,PneumoniaÂ ,abscessess,Torticollis,Septicemia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Depression,Attack,Bite other animals,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Difficulty in breathing,swelling problem,bleeding from wounds,frequent yawning,anorexia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,egg production decreases,stunted growth,Blindness,Distinctive bumps,Facial swelling,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Severe,Diarrhea,Blood on faces,Appetite,Milk reduce,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fluif Faeces on blood and muscle,Sudden Death,Blooody Fluid,Red Diarrhea,Faeces are streake with blood,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Immediate death,Difficulty in breathing,Blue colored lip,Bloody discharge,Neurologic abnormalities,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Inability to stand,Diarrhea,Bottle Jaw,Pot belly,Dry Hair coat,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Convulsion,Loss of consciousness,chewing,Twitching,Salivating,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Blood stool,Diarrhea,Coughing,Weight loss,Anemia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Wheezing,Rapid Breathing,Coughing,Swallowing,Effort to breath,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Mild sneezing,Coughing,Nasal,Ocular discharge,Mammals,Diurnal,37.3 °C,Yes
+Elephant,changed gait,dull ness,diffuse,difficulty diagnosis,Anemia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Difficulty in breathing,Dribbling of saliva,Inability of Swalllon Feeding,Moist and painfull,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Discomfort,Diarrhea,Dry or dull hair,Grinding teeth,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Watering Diarrhea,Depression,Emaciation,Ruffled Coat,Lethargy,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Diarrhea,Enteritis,Weight loss,Stomach  cramps,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Loss of appetite,Eyeproblem,Liver disease,Nuerological,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Swelling on leg,Heat,Hardness,Redness,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Dull,Hind quarted soil,Animal stop feed,Decrease in milk production,Mammals,Diurnal,37.3 °C,Yes
+Elephant,swollen,red-colored,hot udder,Milk getting out more watery,Milk getting out more thick,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Nasal discharge,Nosebleeds,inflamed nostrils,Sneezing,Lound breathing,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Sensitivity to bright light,Disharge from affected eye,Inflammation,Clouded cornea,Rubbing eye,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Floopy muscle,Speech delay,Intellectual disability,Walking problem,Eye movements,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Slightly Swollen,Lession on the skin,Milky Hard,Papules appear on teats anad udder,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Jaundice,Weekness,Lethargy,Weight loss,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Skin irritation,Scartching,Lethargy,Hair loss,Excessive grooming,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Swelling  in the bite area,Lethargy,Limp,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,undernutrition,drinking polluted water,listlessness,Staggering,anorexia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,weakened legs,los of the ability to walk,Mammary glads,Fluif filled blisters,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,weakened legs,los of the ability to walk,Weight loss,Lameness,Mammals,Diurnal,37.3 °C,Yes
+Elephant,loss in weight,emaciation,loss of appetite,Weakness,diarrhoea,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Excitability,Nervousness,loss of appetite,Hyper sensitivity,Weakness,Mammals,Diurnal,37.3 °C,Yes
+Elephant,changed gait,dull ness,muscles problem,Pain,Pains,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Most often none,Sneezing,Nasal Discharge,Dyspnea,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Loss of appetite,Swelling,Nasal Discharge,Blindness,Lethargy,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Animal become lame,Prostrat,Painfull Swalling,Lameness,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Lession on cat skin,Dandruff in cat coat,Red patches,Hair loss,Skin issue,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Depression,Relunctance to move,Salivation,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Elephant,loss of appetite,diarrhea,ruffled feathers,Weight loss,Inability to absorb nutrients,Mammals,Diurnal,37.3 °C,Yes
+Elephant,loss of appetite,thirst,ruffled feathers,Closed eyes,Diarrhea,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Scaly patches of skin,Sore,Scabs,Scartch,Hair loss,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Pox lession on skin,Skin reashes,Nasal discharge,Mortality varies,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Chills,Skin ulcer,Exhaustion,Swollen and painfull,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,PneumoniaÂ ,Stand with head droping,Weight loss,Abnormal behaviour,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Tenderness,Erythema,Swelling ,Scartch,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Normal appetite,Diarrhea,Swelling may occur under jaw,Weight loss,Drop in milk production,Mammals,Diurnal,37.3 °C,Yes
+Elephant,loss of appetite,diarrhea,swollen purple wattle,Swollen comb,Lameness,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Distress,Trembling,Staggering,Convulsion,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Polyuria,Loss of  appetite,Vomiting,Weight loss,Polydipsa,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Exessive Urination,Change in gait,Vomiting,Weight loss,Inability to jump,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Lethargy,Diarrhea,Vomiting,Discharge from eye,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Diarrhea,Vomiting,Cramps,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Diarrhea,Vomiting,Salivation,Decrease appetite,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fatty stool,Diarrhea,Vomiting,Weight loss,Pain,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Nausea,Loss of appetite,Vomiting,Firm,Distended stomach,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Fever,Diarrhea,Vomiting,Blood from mouth,Shock,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Red on affected area,Horny growth,Wart-like growth,Red skin,Lesions on ear,Mammals,Diurnal,37.3 °C,Yes
+Elephant,Abortion at the end of gestation,Fatigue,weak calves,Join pains,Swelling of internal organs,Mammals,Diurnal,37.3 °C,Yes
+Elk,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+Fowl,Constant pacing,Facial muscle twitching,abnormalalities,Blindness,Muscle pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Red Tinge,Slim over the shell,Bad smell,Easily damage shell,Flaking of the Scutes,Aves,Diurnal,41.5 °C,Yes
+Fowl,Indigestion,Abdminal pain,Constipation,Diarrhea,Nausea,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Chills,Coughing,Progressive weakness,Joint Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Dullness,Lacrimation,Coughing,Diarrhea,Seizures,Aves,Diurnal,41.5 °C,Yes
+Fowl,Runny nose,Difficulty in breathing,Coughing,Weakness,Loss of appettite,Aves,Diurnal,41.5 °C,Yes
+Fowl,Emaciation,Edema in lower jaw,Coughing,Shivering,Anemia,Aves,Diurnal,41.5 °C,Yes
+Fowl,Bald patches,Hair loss,Crusty,Flaky,Red lesion from bald patches,Aves,Diurnal,41.5 °C,Yes
+Fowl,Eye redness,Frequent eye Infections,Crusty eye lashes and matting of eyelashes,foul smelling stools,Â increased passing gas,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Uncharacteristic hiding,Depression,Dehydration,Stopped eat,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Lack of coordination,Depression,Salivation,Facial paralysis,Aves,Diurnal,41.5 °C,Yes
+Fowl,Poor condition,Enlarged lymph nodes,Diarrhea,Weight loss,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,unable to urinate,LightheadednessÂ ,droopiness,rectal bleeding,swollen abdomen,Aves,Diurnal,41.5 °C,Yes
+Fowl,cough,sneeze,droopy wings,twisted neck,droopy wings,Aves,Diurnal,41.5 °C,Yes
+Fowl,Ring shaped Lesion,Round patches,Dry skin,Size of lesions vary,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Poor growth,Short stature,Enlargement of bones,Lameness,Weigth bearing long bones,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Wound lesion,Excess salivary,Difficult in walking,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,extending its neck,gasping for air,gasping for breath,difficulty swallowing,gasping for breath,Aves,Diurnal,41.5 °C,Yes
+Fowl,Thicked skin,Hair tining,Hair loss,Scabbing,Itchiness,Aves,Diurnal,41.5 °C,Yes
+Fowl,Thick Crusting,Itchiness,Hair loss,Watery eye,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Chills,Headache,Nausea,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Tiredness,Headache,Skin rashes,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Hemolytic anemia,Hemoglobinuria,pulmonary congestion,Jaundice,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Dark colored bloody,Incoordination,Difficulty in breathing,Terminal convulsion,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Poor coat condition,Infection of the skin,Weight loss,Fatique,Aves,Diurnal,41.5 °C,Yes
+Fowl,Vomiting,Bloody diarrhea,Lethargy,Dehydration,Anorexia,Aves,Diurnal,41.5 °C,Yes
+Fowl,nausea,vomiting,loss of appetite,experiencing changes in weight,Â pain and bloating,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Diarrhea,loss of appetite,Colic,Weakness,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Depression,loss of appetite,Stumbling,Ataxia,Aves,Diurnal,41.5 °C,Yes
+Fowl,Bubbles in the mouth,Wheezing,loss of appetite,Lethargy,Nasal Discharge,Aves,Diurnal,41.5 °C,Yes
+Fowl,Changes in outer layer skin,Swelling of eye,loss of appetite,Lethargy,Respiratory infection,Aves,Diurnal,41.5 °C,Yes
+Fowl,Smell,Diarrhea,loss of appetite,Excess sleeping,Folded Ears,Aves,Diurnal,41.5 °C,Yes
+Fowl,Loss of activity,Rough coat,loss of appetite,Weight loss,Eventually death,Aves,Diurnal,41.5 °C,Yes
+Fowl,NosebleedÂ ,Trauma,mild weakness,Nose picking,Dry air,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Respiratory distress,Mucous discharge,Reduce feed,Weight gain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Diarrhea,Muscle weakness,Muscle pain,Abdonormal discomfort,Aves,Diurnal,41.5 °C,Yes
+Fowl,Upset stomach,Loss of appetite,Nause,Weight loss,Abdonormal pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Respiratory distress,Occular discharge,Mouth lesion,Nasal Discharge,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Nasal discharge,Respiratory distress,Pox lesion,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Abortion on late pregancy,Stillbirth,Retained Placenda,Endomeritis,Decrease appetite,Aves,Diurnal,41.5 °C,Yes
+Fowl,Loss od appetite,Wheezing,Seizuers,Skin rashes,Fatique,Aves,Diurnal,41.5 °C,Yes
+Fowl,Partial Paralysis,Staggering as drunk,Self Mutilation,Acting aggressive,Acting unnaturally tame,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Muscle Loss,Skeleten pain,Weight loss,Wasting,Aves,Diurnal,41.5 °C,Yes
+Fowl,Sores on lip,Infection,Sores on lower leg and teats,Lesion,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Abortion,Mummification,Stillbirth,Weak kids,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Chills,Sweat,Head ache,Fatique,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Diarrhea,Swelling,Weight loss,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Dysentery,Swelling,Immediate death,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Oedema,Swelling of face or leg,Swelling of neck,Weight loss,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Swelling of udder,change in milk,Swollen,Tender to touch,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Weakness,Stiffness,Trembling,White mark on the muscle,Loss of vitamin E,Aves,Diurnal,41.5 °C,Yes
+Fowl,Heavy infection,Diarrhea,Vitamin and minerals defiency,Weight loss,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Passing of undigested food,Diarrhea,Vomiting,Gas or bloating,Dehydration,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Diarrhea,Vomiting,Dehydration,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Facial edema,Loss of earing,Vomiting,Head ache,Throat and Ear pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,General malaise,Hepatic failure,Vomiting,Weight loss,Abdonormal pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,Blood in urine,Diarrhea,Vomiting,Lethargy,Bleeding in eye and skin,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Diarrhea,Vomiting,Stomach cramps,Nausea,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Loss of appetite,Weakness,Weight loss,Vomitting,Aves,Diurnal,41.5 °C,Yes
+Fowl,Fever,Malaise,Weakness,Weight loss,Pain,Aves,Diurnal,41.5 °C,Yes
+Fowl,paresis,paralysis,Weakness,Stomach cramps,Diarrhea,Aves,Diurnal,41.5 °C,Yes
+Fowl,Decreased milk,Holding limbs off the ground,Weight loss,Lameness,Wool production,Aves,Diurnal,41.5 °C,Yes
+Horse,Fever,Ataxia,Aggressiveness,Depression,Obscure Lameness,Mammals,Diurnal,37.3 °C,Yes
+Horse,Ring shaped Lesion,Round patches,Dry skin,Size of lesions vary,Pain,Mammals,Diurnal,37.3 °C,Yes
+Horse,Fever,Abortion,Kidney failure,Inflammation of eye,Eye redness,Mammals,Diurnal,37.3 °C,Yes
+Horse,head tilt,lathargy,lathargy,urine dribbling,inability to rise,Mammals,Diurnal,37.3 °C,Yes
+Horse,Fever,Body stiffness,Lethargy,Severe inflammation,Pain,Mammals,Diurnal,37.3 °C,Yes
+Horse,Fever,Diarrhea,loss of appetite,Colic,Weakness,Mammals,Diurnal,37.3 °C,Yes
+Horse,Fever,Depression,loss of appetite,Stumbling,Ataxia,Mammals,Diurnal,37.3 °C,Yes
+Horse,fever,mild colic,loss of tail tone,loss of appetite,depression,Mammals,Diurnal,37.3 °C,Yes
+Horse,fever,nasal discharge,muscular stiffness,swollen lymph nodes,depression,Mammals,Diurnal,37.3 °C,Yes
+Horse,Sudden death,Trouble walking,Paralysis,Depression,Convulsion,Mammals,Diurnal,37.3 °C,Yes
+Horse,fever,loss of appetite,respiratory noise,Weight loss,depression,Mammals,Diurnal,37.3 °C,Yes
+Horse,Small red bumps,PneumoniaÂ ,Septic Arthritis,Skin infection,Pain,Mammals,Diurnal,37.3 °C,Yes
+Horse,Fever,Chills,Severe colic,Weakness,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Horse,sweating,muscular spasms,thirst,Weight loss,difficulty moving and eating,Mammals,Diurnal,37.3 °C,Yes
+Horse,Sickness,Diarrhea,Weight loss,Nausea,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+Lion,Dullness,Lacrimation,Coughing,Diarrhea,Seizures,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Uncharacteristic hiding,Depression,Dehydration,Stopped eat,Mammals,Diurnal,37.3 °C,Yes
+Lion,Poor growth,Short stature,Enlargement of bones,Lameness,Weigth bearing long bones,Mammals,Diurnal,37.3 °C,Yes
+Lion,Thicked skin,Hair tining,Hair loss,Scabbing,Itchiness,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Chills,Headache,Nausea,Pain,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Poor coat condition,Infection of the skin,Weight loss,Fatique,Mammals,Diurnal,37.3 °C,Yes
+Lion,Vomiting,Bloody diarrhea,Lethargy,Dehydration,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Diarrhea,Muscle weakness,Muscle pain,Abdonormal discomfort,Mammals,Diurnal,37.3 °C,Yes
+Lion,Upset stomach,Loss of appetite,Nause,Weight loss,Abdonormal pain,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Muscle Loss,Skeleten pain,Weight loss,Wasting,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Chills,Sweat,Head ache,Fatique,Mammals,Diurnal,37.3 °C,Yes
+Lion,Oedema,Swelling of face or leg,Swelling of neck,Weight loss,Pain,Mammals,Diurnal,37.3 °C,Yes
+Lion,Weakness,Stiffness,Trembling,White mark on the muscle,Loss of vitamin E,Mammals,Diurnal,37.3 °C,Yes
+Lion,Facial edema,Loss of earing,Vomiting,Head ache,Throat and Ear pain,Mammals,Diurnal,37.3 °C,Yes
+Lion,General malaise,Hepatic failure,Vomiting,Weight loss,Abdonormal pain,Mammals,Diurnal,37.3 °C,Yes
+Lion,Fever,Loss of appetite,Weakness,Weight loss,Vomitting,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Hepatitis,Skin rashes,Weight loss,Pain,Mammals,Diurnal,37.3 °C,No
+Monkey,Sneezing,Epistaxis,Coughing,Difficulty in breathing,Nasal Discharge,Mammals,Diurnal,37.3 °C,No
+Monkey,Sneezing,Unilateral Nasal discharge,Gagging,Retching,Weight loss,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Depression,Coughing,Weight loss,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Shallow breathing,Halitosis,Coughing,Lethargy,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Dyspnea,Sneezing,Coughing,Difficulty in breathing,Infection,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Dyspnea,Sneezing,Coughing,Difficulty in breathing,Pain,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Rhinorrhea,Coughing,Sneezing,Dehydration,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Rhinorrhea,Coughing,Facial edema,Dyspnea,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Rhinorrhea,Coughing,Sneezing,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Mortality,Painfull,Coughing,Weight loss,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Skin rashes,Diarrhea,Death,Facial edema,Pain,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Dyspnea,Coughing,Lethargy,Weightloss,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Dyspnea,Coughing,weakness,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Facial edema,Dyspnea,Conjuctivtis,Weakness,Pharyngitis,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,PneumoniaÂ ,Congestion,Lethargy,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Death,Coughing,Weight loss,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Sneezing,Convulsion,Seizuers,Weight loss,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Death,Coughing,Dyspnea,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Dyspnea,Difficulty in breathing,Coughing,Lethargy,Nasal Discharge,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Air sacculitis,Halitosis,Coughing,Enteritis,Weight loss,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Convulsion,Sudden death,Urine retention,Weight loss,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Dyspnea,Neurologic sign,Coughing,Depression,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Fever,Dyspnea,Coughing,Lethargy,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Labored breathing,Dyspnea,Coughing,Depression,Anorexia,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Blood from mouth,Diarrhea,Coughing,Lethargy,Weight loss,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Hemopytsis,Diarrhea,Asymptomatic,Death,Epistaxis,Mammals,Diurnal,37.3 °C,Yes
+Monkey,Restlessness,Weakness,Blue straws,Death,Pain,Mammals,Diurnal,37.3 °C,Yes
+Mule deer,wasting,stumbling,listlessness,drooling,urination problem,Mammals,Diurnal,37.3 °C,Yes
+mules,weight loss,dull ness,muscles problem,self-isolation,recumbency,Mammals,Diurnal,37.3 °C,Yes
+Owl,Gasping,coughingÂ ,mild weakness,droopy wings,twisted neck,Aves,Nocturnal,39.7 °C,Yes
+Owl,Bad breath,Pawing at the face or nose,coughÂ ,Sneezing,Bleeding from the nose,Aves,Nocturnal,39.7 °C,Yes
+Owl,coughÂ ,gasping for air,Weight loss,gasping for breath,extending its neck,Aves,Nocturnal,39.7 °C,Yes
+Owl,Sudden death,loss of appetite,Â rapid heartbeats,fluffed feathers,lack of vocalizations,Aves,Nocturnal,39.7 °C,Yes
+Owl,Egg production stops,Broody behavior,loss of appetite,Weight loss,Constipation,Aves,Nocturnal,39.7 °C,Yes
+Owl,Continuous loss of weight,Regurgitation of food,wheezing,Excessive food intake,Undigested seeds,Aves,Nocturnal,39.7 °C,Yes
+Rabbit,Most often none,Sneezing,Nasal Discharge,Dyspnea,Pain,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Fever,Diarrhea,Vomiting,Blood from mouth,Shock,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Discomfort,Diarrhea,Dry or dull hair,Grinding teeth,Pain,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Loss of appetite,Swelling,Nasal Discharge,Blindness,Lethargy,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Rhinitis,PneumoniaÂ ,abscessess,Torticollis,Septicemia,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Fever,Diarrhea,Enteritis,Weight loss,Stomach  cramps,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Immediate death,Difficulty in breathing,Blue colored lip,Bloody discharge,Neurologic abnormalities,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Fever,Pox lession on skin,Skin reashes,Nasal discharge,Mortality varies,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Red on affected area,Horny growth,Wart-like growth,Red skin,Lesions on ear,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Fever,Chills,Skin ulcer,Exhaustion,Swollen and painfull,Mammals,Diurnal,37.3 °C,Yes
+Rabbit,Watering Diarrhea,Depression,Emaciation,Ruffled Coat,Lethargy,Mammals,Diurnal,37.3 °C,Yes
+Snake,loss of appetite,lathargy,abortion,gurgling sound,Depression,Ectotherms,Diurnal,32.4 °C,Yes
+Tiger,feline infections,lymphosarcoma,difficulty breating,stomatitis,anaemia,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Wether restless,Kicking,Normal appetite,Attempt to urinate,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Inability to stand,Pains to Walk,Depression,Weakness,Stiffness,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fever,Succumb,Sluggish,Anorexia,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Listless,Bottle jaw,Malpresentation,Death,Oxygen defiency,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Tiger,Fetopelvic dispropotion,Uteria inertia,Malpresentation,Death,Pains,Mammals,Diurnal,37.3 °C,Yes
+Turtle,Bubbles in the mouth,Wheezing,loss of appetite,Lethargy,Nasal Discharge,Ectotherms,Diurnal,27.2 °C,Yes
+Turtle,Changes in outer layer skin,Swelling of eye,loss of appetite,Lethargy,Respiratory infection,Ectotherms,Diurnal,27.2 °C,Yes
+Turtle,Red Tinge,Slim over the shell,Bad smell,Easily damage shell,Flaking of the Scutes,Ectotherms,Diurnal,27.2 °C,Yes
+Turtle,Passing of undigested food,Diarrhea,Vomiting,Gas or bloating,Dehydration,Ectotherms,Diurnal,27.2 °C,Yes
+White-tailed deer,wasting,stumbling,listlessness,drooling,drooping ears,Mammals,Diurnal,37.3 °C,Yes

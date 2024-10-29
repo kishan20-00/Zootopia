@@ -7,14 +7,24 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# Load the trained model
-model = tf.keras.models.load_model('model.h5')
+# Load the trained models
+model1 = tf.keras.models.load_model('model.h5')
+model2 = tf.keras.models.load_model('model2.h5')
+model3 = tf.keras.models.load_model('model3.h5')
+model4 = tf.keras.models.load_model('model4.h5')
+model5 = tf.keras.models.load_model('model5.h5')
 
 # Load label encoders
 label_encoder_X_classes = {}
-for col in ['AnimalName', 'Symptoms1', 'Symptoms2', 'Symptoms3', 'Symptoms4', 'Symptoms5', 'AnimalGroup', 'DielActivity']:
+for col in ['AnimalName', 'AnimalGroup', 'DielActivity']:
     label_encoder_X_classes[col] = load(f'label_encoder_{col}_classes.joblib')
-label_encoder_Y_classes = load('label_encoder_Y_classes.joblib')
+label_encoder_Y_classes = {
+    'symptom1': load('label_encoder_Y_sim1.joblib'),
+    'symptom2': load('label_encoder_Y_sim2.joblib'),
+    'symptom3': load('label_encoder_Y_sim3.joblib'),
+    'symptom4': load('label_encoder_Y_sim4.joblib'),
+    'symptom5': load('label_encoder_Y_sim5.joblib')
+}
 
 # Preprocess the input data
 def preprocess_input(input_data):
@@ -48,20 +58,25 @@ def preprocess_input(input_data):
 def predict():
     # Get data from the request
     input_data = request.json
-    print(input_data)
+    print("Input data received:", input_data)
     
     # Preprocess the input data
     preprocessed_input = preprocess_input(input_data)
     
-    # Make predictions using the trained model
-    predictions = model.predict(preprocessed_input)
+    # Make predictions using the trained models
+    predictions = {}
     
-    # Get the predicted class
-    predicted_class_index = np.argmax(predictions)
-    predicted_class = label_encoder_Y_classes.classes_[predicted_class_index]
+    models = [model1, model2, model3, model4, model5]
+    symptoms = ['symptom1', 'symptom2', 'symptom3', 'symptom4', 'symptom5']
     
-    # Return the predicted class
-    return jsonify({'Is it dangerous': predicted_class})
+    for model, symptom in zip(models, symptoms):
+        model_predictions = model.predict(preprocessed_input)
+        predicted_class_index = np.argmax(model_predictions)
+        predicted_class = label_encoder_Y_classes[symptom].classes_[predicted_class_index]
+        predictions[symptom] = predicted_class
+    
+    # Return the predicted classes
+    return jsonify(predictions)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5007)

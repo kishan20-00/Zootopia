@@ -1,52 +1,82 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, ScrollView, RefreshControl } from 'react-native';
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
+import firebase from '../firebaseConfig'; // Adjust the path as needed
 
 const PredictionForm = () => {
-  // States for form fields
   const [animalName, setAnimalName] = useState('');
-  const [symptom1, setSymptom1] = useState('');
-  const [symptom2, setSymptom2] = useState('');
-  const [symptom3, setSymptom3] = useState('');
-  const [symptom4, setSymptom4] = useState('');
-  const [symptom5, setSymptom5] = useState('');
   const [animalGroup, setAnimalGroup] = useState('');
   const [dielActivity, setDielActivity] = useState('');
   const [meanBodyTemperature, setMeanBodyTemperature] = useState('');
-  const [prediction, setPrediction] = useState(null);
+  const [heartRate, setHeartRate] = useState('');
+  const [predictions, setPredictions] = useState({}); // Updated state to hold multiple predictions
+  const [refreshing, setRefreshing] = useState(false);
 
-  // Function to handle form submission
+  // Fetch data from Firebase
+  const fetchFirebaseData = async () => {
+    try {
+      const snapshot = await firebase.database().ref('/device/stream').once('value');
+
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const keys = Object.keys(data); // Get all keys (stream counts)
+
+        // Find the maximum key
+        const maxKey = Math.max(...keys.map(Number)); // Convert keys to numbers and find the max
+
+        // Get the data associated with the maximum key
+        const latestData = data[maxKey];
+
+        if (latestData) {
+          setHeartRate(latestData.bpm ? latestData.bpm.toString() : ''); // Set Heart Rate
+          setMeanBodyTemperature(latestData.temp ? latestData.temp.toString() : ''); // Set Temperature
+        }
+      } else {
+        console.log("No data available");
+      }
+    } catch (error) {
+      console.error("Error fetching data from Firebase:", error);
+      Alert.alert("Error", "Could not fetch data from Firebase.");
+    }
+  };
+
+  useEffect(() => {
+    fetchFirebaseData();
+  }, []);
+
+  // Handle form submission
   const handleSubmit = () => {
     const inputData = {
       AnimalName: animalName,
-      Symptoms1: symptom1,
-      Symptoms2: symptom2,
-      Symptoms3: symptom3,
-      Symptoms4: symptom4,
-      Symptoms5: symptom5,
       AnimalGroup: animalGroup,
       DielActivity: dielActivity,
       MeanBodyTemperature: meanBodyTemperature,
     };
 
-    // Send a POST request to the Flask backend using Axios
     axios.post('http://192.168.1.100:5007/predict', inputData)
       .then((response) => {
-        // Handle success, showing the prediction
-        const result = response.data['Is it dangerous'];
-        setPrediction(result);
-        Alert.alert("Prediction", `Is it dangerous: ${result}`);
+        const result = response.data; // Updated to get the whole result object
+        setPredictions(result); // Set predictions state with the entire result
       })
       .catch((error) => {
-        // Handle error
         console.error("There was an error making the prediction:", error);
         Alert.alert("Error", "Could not make the prediction. Try again.");
       });
   };
 
+  // Pull to refresh
+  const onRefresh = () => {
+    setRefreshing(true);
+    fetchFirebaseData().finally(() => setRefreshing(false));
+  };
+
   return (
-    <View style={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+    >
       <Text style={styles.title}>Animal Danger Prediction</Text>
 
       <TextInput
@@ -54,41 +84,6 @@ const PredictionForm = () => {
         placeholder="Enter Animal Name"
         value={animalName}
         onChangeText={setAnimalName}
-        placeholderTextColor="#9e9e9e" // Placeholder text color
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 1"
-        value={symptom1}
-        onChangeText={setSymptom1}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 2"
-        value={symptom2}
-        onChangeText={setSymptom2}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 3"
-        value={symptom3}
-        onChangeText={setSymptom3}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 4"
-        value={symptom4}
-        onChangeText={setSymptom4}
-        placeholderTextColor="#9e9e9e"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Symptom 5"
-        value={symptom5}
-        onChangeText={setSymptom5}
         placeholderTextColor="#9e9e9e"
       />
       <TextInput
@@ -107,81 +102,88 @@ const PredictionForm = () => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Enter Temperature"
+        placeholder="Temperature (from Firebase)"
         value={meanBodyTemperature}
         onChangeText={setMeanBodyTemperature}
         placeholderTextColor="#9e9e9e"
+        editable={false} // Make this field non-editable
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Heart Rate (from Firebase)"
+        value={heartRate}
+        placeholderTextColor="#9e9e9e"
+        editable={false} // Non-editable
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Icon name="analytics" size={24} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Predict</Text>
       </TouchableOpacity>
 
-      {prediction && (
-        <Text style={styles.result}>Prediction: {prediction}</Text>
+      {Object.keys(predictions).length > 0 && (
+        <View style={styles.resultContainer}>
+          {Object.entries(predictions).map(([key, value]) => (
+            <Text key={key} style={styles.result}>
+              {key}: {value}
+            </Text>
+          ))}
+        </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
-// Styling
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#e8f5e9', // Light green background
+    backgroundColor: '#e8f5e9',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 30,
     textAlign: 'center',
-    color: '#2b7a0b', // Dark green color for title
+    color: '#2b7a0b',
   },
   input: {
     height: 50,
-    borderColor: '#4CAF50', // Green border color
+    borderColor: '#4CAF50',
     borderWidth: 1,
     marginBottom: 15,
     paddingHorizontal: 15,
-    borderRadius: 25, // Rounded corners
-    backgroundColor: '#fff', // White background for inputs
+    borderRadius: 25,
+    backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 3, // Elevation for Android shadow
+    elevation: 3,
   },
   button: {
-    flexDirection: 'row',
-    backgroundColor: '#4CAF50', // Green color for button
+    backgroundColor: '#4CAF50',
     padding: 15,
     borderRadius: 30,
     marginTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5, // Elevation for Android shadow
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-    marginLeft: 10,
   },
-  icon: {
-    marginRight: 10,
+  resultContainer: {
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: '#f0f4c3',
+    borderRadius: 10,
   },
   result: {
-    marginTop: 20,
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#2b7a0b', // Dark green color for result text
+    fontSize: 18,
+    textAlign: 'left',
+    color: '#2b7a0b',
     fontWeight: 'bold',
   },
 });
