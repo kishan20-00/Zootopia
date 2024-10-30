@@ -1,6 +1,7 @@
 import { Camera, CameraType } from 'expo-camera/legacy';
 import { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
 
 export default function RealTimeBehaviorPrediction() {
   const [type, setType] = useState(CameraType.back);
@@ -73,7 +74,9 @@ export default function RealTimeBehaviorPrediction() {
   if (!permission.granted) {
     return (
       <View style={styles.container}>
-        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
+        <Text style={styles.permissionText}>
+          We need your permission to show the camera
+        </Text>
         <Button onPress={requestPermission} title="Grant Permission" />
       </View>
     );
@@ -93,9 +96,18 @@ export default function RealTimeBehaviorPrediction() {
               </Text>
             </View>
           )}
+          <View style={styles.infoContainer}>
+            <Icon name="info-outline" size={20} color="#fff" />
+            <Text style={styles.infoText}>
+              This app predicts animal behaviors in real-time. Tap the button below to start streaming!
+            </Text>
+          </View>
         </View>
       </Camera>
-      <Button title={isStreaming ? "Stop Streaming" : "Start Streaming"} onPress={toggleStreaming} />
+      <TouchableOpacity style={styles.button} onPress={toggleStreaming}>
+        <Icon name={isStreaming ? "stop" : "play-arrow"} size={24} color="#fff" />
+        <Text style={styles.buttonText}>{isStreaming ? "Stop Streaming" : "Start Streaming"}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -104,21 +116,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: '#e8f5e9', // Light green background
   },
   camera: {
     flex: 1,
   },
   overlay: {
     position: 'absolute',
-    bottom: 30,
+    bottom: 100,
     left: 10,
     right: 10,
     alignItems: 'center',
   },
   predictionContainer: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    padding: 10,
+    backgroundColor: 'rgba(0,0,0,0.7)', // Darker background for better readability
+    padding: 15,
     borderRadius: 10,
+    marginBottom: 10,
   },
   predictionText: {
     color: 'white',
@@ -127,5 +141,42 @@ const styles = StyleSheet.create({
   confidenceText: {
     color: 'white',
     fontSize: 16,
+  },
+  infoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)', // Semi-transparent background
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  infoText: {
+    color: 'white',
+    fontSize: 14,
+    marginLeft: 5,
+  },
+  permissionText: {
+    textAlign: 'center',
+    marginBottom: 20,
+    fontSize: 16,
+  },
+  button: {
+    backgroundColor: '#4CAF50', // Green button
+    padding: 15,
+    borderRadius: 30,
+    margin: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Elevation for Android shadow
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 10,
   },
 });

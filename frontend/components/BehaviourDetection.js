@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
-import { Video } from 'expo-av'; // Import Video component
-import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
+import { Video } from 'expo-av';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const BehaviorDetection = () => {
   const [video, setVideo] = useState(null);
@@ -60,7 +60,10 @@ const BehaviorDetection = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Upload a Video for Prediction</Text>
+      <Text style={styles.title}>Upload a Video for Behavior Prediction</Text>
+      <Text style={styles.description}>
+        Choose a video that showcases the behavior you want to analyze. Our AI will provide insights based on your input.
+      </Text>
 
       <TouchableOpacity style={styles.button} onPress={pickVideo}>
         <Icon name="videocam" size={24} color="#fff" style={styles.icon} />
@@ -72,7 +75,6 @@ const BehaviorDetection = () => {
           <Text style={styles.videoText}>
             Video Selected: {video.uri.split('/').pop()}
           </Text>
-          {/* Display the video */}
           <Video
             source={{ uri: video.uri }}
             rate={1.0}
@@ -97,6 +99,15 @@ const BehaviorDetection = () => {
       {prediction && (
         <Text style={styles.predictionText}>Prediction: {prediction}</Text>
       )}
+
+      {/* Add some informative images */}
+      <Image
+        source={require('../assets/image4.jpg')} // Update the path to your image
+        style={styles.infoImage}
+      />
+      <Text style={styles.infoText}>
+        Analyze various behaviors through your videos. Our AI leverages advanced algorithms to provide accurate predictions.
+      </Text>
     </View>
   );
 };
@@ -107,18 +118,25 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: '#e8f5e9', // Light green background
+    backgroundColor: '#e8f5e9',
   },
   title: {
     fontSize: 26,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    color: '#2b7a0b', // Dark green color for title
+    color: '#2b7a0b',
+  },
+  description: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#2b7a0b',
+    paddingHorizontal: 10,
   },
   button: {
     flexDirection: 'row',
-    backgroundColor: '#4CAF50', // Green color for button
+    backgroundColor: '#4CAF50',
     padding: 15,
     borderRadius: 30,
     marginTop: 20,
@@ -128,7 +146,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 5, // Elevation for Android shadow
+    elevation: 5,
   },
   buttonText: {
     color: '#fff',
@@ -149,20 +167,39 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 5, // Elevation for Android shadow
+    elevation: 5,
   },
   videoText: {
     marginTop: 15,
     fontSize: 16,
     textAlign: 'center',
-    color: '#2b7a0b', // Dark green color for text
+    color: '#2b7a0b',
   },
   predictionText: {
     marginTop: 20,
     fontSize: 20,
-    color: '#2b7a0b', // Dark green color for result text
+    color: '#2b7a0b',
     textAlign: 'center',
     fontWeight: 'bold',
+  },
+  infoImage: {
+    width: '100%',
+    height: 200,
+    marginTop: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  infoText: {
+    marginTop: 10,
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#2b7a0b',
+    paddingHorizontal: 10,
   },
 });
 
