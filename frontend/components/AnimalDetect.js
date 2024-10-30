@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
-import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icons
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Prescription = () => {
+const AnimalDetection = () => {
   const [image, setImage] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [uploading, setUploading] = useState(false);
@@ -83,6 +83,15 @@ const Prescription = () => {
 
   return (
     <View style={styles.container}>
+      <Image 
+        source={require('../assets/images1.jpg')} // Add your image here
+        style={styles.headerImage}
+      />
+      <Text style={styles.title}>Animal Detection</Text>
+      <Text style={styles.description}>
+        Upload an image of an animal to detect its species and get predictions on its condition.
+      </Text>
+
       <TouchableOpacity style={styles.button} onPress={pickImage}>
         <Icon name="photo-library" size={24} color="#fff" style={styles.icon} />
         <Text style={styles.buttonText}>Pick Image</Text>
@@ -116,12 +125,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#e8f5e9', // Light green background
+    backgroundColor: '#e8f5e9',
     padding: 20,
+  },
+  headerImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    borderRadius: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#2b7a0b',
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'center',
+    marginBottom: 20,
+    paddingHorizontal: 10,
   },
   button: {
     flexDirection: 'row',
-    backgroundColor: '#4CAF50', // Green color for buttons
+    backgroundColor: '#4CAF50',
     padding: 15,
     borderRadius: 25,
     marginVertical: 10,
@@ -132,7 +161,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
-    elevation: 5, // Elevation for Android shadow
+    elevation: 5,
   },
   buttonText: {
     color: '#fff',
@@ -152,7 +181,7 @@ const styles = StyleSheet.create({
   predictionContainer: {
     marginTop: 20,
     alignItems: 'center',
-    backgroundColor: '#f1f8e9', // Slightly lighter green for the prediction box
+    backgroundColor: '#f1f8e9',
     padding: 15,
     borderRadius: 10,
     shadowColor: '#000',
@@ -164,8 +193,8 @@ const styles = StyleSheet.create({
   predictionText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#2b7a0b', // Dark green for prediction text
+    color: '#2b7a0b',
   },
 });
 
-export default Prescription;
+export default AnimalDetection;

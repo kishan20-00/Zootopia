@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, ScrollView, RefreshControl, Image } from 'react-native';
 import axios from 'axios';
 import firebase from '../firebaseConfig'; // Adjust the path as needed
+import { MaterialIcons } from '@expo/vector-icons'; // For icons
 
 const PredictionForm = () => {
   const [animalName, setAnimalName] = useState('');
@@ -9,27 +10,22 @@ const PredictionForm = () => {
   const [dielActivity, setDielActivity] = useState('');
   const [meanBodyTemperature, setMeanBodyTemperature] = useState('');
   const [heartRate, setHeartRate] = useState('');
-  const [predictions, setPredictions] = useState({}); // Updated state to hold multiple predictions
+  const [predictions, setPredictions] = useState({});
   const [refreshing, setRefreshing] = useState(false);
 
-  // Fetch data from Firebase
   const fetchFirebaseData = async () => {
     try {
       const snapshot = await firebase.database().ref('/device/stream').once('value');
 
       if (snapshot.exists()) {
         const data = snapshot.val();
-        const keys = Object.keys(data); // Get all keys (stream counts)
-
-        // Find the maximum key
-        const maxKey = Math.max(...keys.map(Number)); // Convert keys to numbers and find the max
-
-        // Get the data associated with the maximum key
+        const keys = Object.keys(data);
+        const maxKey = Math.max(...keys.map(Number));
         const latestData = data[maxKey];
 
         if (latestData) {
-          setHeartRate(latestData.bpm ? latestData.bpm.toString() : ''); // Set Heart Rate
-          setMeanBodyTemperature(latestData.temp ? latestData.temp.toString() : ''); // Set Temperature
+          setHeartRate(latestData.bpm ? latestData.bpm.toString() : '');
+          setMeanBodyTemperature(latestData.temp ? latestData.temp.toString() : '');
         }
       } else {
         console.log("No data available");
@@ -44,7 +40,6 @@ const PredictionForm = () => {
     fetchFirebaseData();
   }, []);
 
-  // Handle form submission
   const handleSubmit = () => {
     const inputData = {
       AnimalName: animalName,
@@ -55,8 +50,8 @@ const PredictionForm = () => {
 
     axios.post('http://192.168.1.100:5007/predict', inputData)
       .then((response) => {
-        const result = response.data; // Updated to get the whole result object
-        setPredictions(result); // Set predictions state with the entire result
+        const result = response.data;
+        setPredictions(result);
       })
       .catch((error) => {
         console.error("There was an error making the prediction:", error);
@@ -64,7 +59,6 @@ const PredictionForm = () => {
       });
   };
 
-  // Pull to refresh
   const onRefresh = () => {
     setRefreshing(true);
     fetchFirebaseData().finally(() => setRefreshing(false));
@@ -73,11 +67,15 @@ const PredictionForm = () => {
   return (
     <ScrollView
       contentContainerStyle={styles.container}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
     >
       <Text style={styles.title}>Animal Danger Prediction</Text>
+
+      <Image source={require('../assets/image3.jpg')} style={styles.headerImage} />
+
+      <Text style={styles.description}>
+        Provide details about the animal to predict its danger level.
+      </Text>
 
       <TextInput
         style={styles.input}
@@ -106,18 +104,19 @@ const PredictionForm = () => {
         value={meanBodyTemperature}
         onChangeText={setMeanBodyTemperature}
         placeholderTextColor="#9e9e9e"
-        editable={false} // Make this field non-editable
+        editable={false}
       />
       <TextInput
         style={styles.input}
         placeholder="Heart Rate (from Firebase)"
         value={heartRate}
         placeholderTextColor="#9e9e9e"
-        editable={false} // Non-editable
+        editable={false}
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Predict</Text>
+        <MaterialIcons name="autorenew" size={24} color="white" />
       </TouchableOpacity>
 
       {Object.keys(predictions).length > 0 && (
@@ -143,9 +142,22 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 10,
     textAlign: 'center',
     color: '#2b7a0b',
+  },
+  headerImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  description: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#555',
+    paddingHorizontal: 10,
   },
   input: {
     height: 50,
@@ -168,11 +180,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   buttonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
+    marginRight: 10,
   },
   resultContainer: {
     marginTop: 20,

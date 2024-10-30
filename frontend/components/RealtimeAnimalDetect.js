@@ -1,6 +1,8 @@
 import { Camera, CameraType } from 'expo-camera/legacy';
 import { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; // Ensure to install this package
+import Icon from 'react-native-vector-icons/MaterialIcons'; 
 
 export default function RealTimePrediction() {
   const [type, setType] = useState(CameraType.back);
@@ -8,7 +10,7 @@ export default function RealTimePrediction() {
   const [prediction, setPrediction] = useState(null);
   const cameraRef = useRef(null);
   const [isStreaming, setIsStreaming] = useState(false);
-  const [intervalId, setIntervalId] = useState(null); // To store the interval ID
+  const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
     if (permission && permission.granted && isStreaming) {
@@ -18,52 +20,45 @@ export default function RealTimePrediction() {
 
   const startStreaming = () => {
     const id = setInterval(async () => {
-        if (!cameraRef.current || !isStreaming) return;
+      if (!cameraRef.current || !isStreaming) return;
 
-        // Capture frame as a base64-encoded image
-        const photo = await cameraRef.current.takePictureAsync({ base64: true });
+      const photo = await cameraRef.current.takePictureAsync({ base64: true });
 
-        const formData = new FormData();
-        // Append the base64 image as a file
-        formData.append('image', {
-            uri: `data:image/jpeg;base64,${photo.base64}`,
-            type: 'image/jpeg', // Adjust the type if necessary
-            name: 'photo.jpg', // Name it something
+      const formData = new FormData();
+      formData.append('image', {
+        uri: `data:image/jpeg;base64,${photo.base64}`,
+        type: 'image/jpeg',
+        name: 'photo.jpg',
+      });
+
+      try {
+        const response = await fetch("http://192.168.1.100:5006/predict_frame", {
+          method: "POST",
+          body: formData,
         });
 
-        try {
-            const response = await fetch("http://192.168.1.100:5006/predict_frame", {
-                method: "POST",
-                body: formData,
-            });
-
-            // Check if the response is ok (status in the range 200-299)
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-
-            // Read response as JSON
-            const data = await response.json();
-            setPrediction(data); // Update the prediction display
-
-        } catch (error) {
-            console.error("Error during prediction:", error);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
-    }, 1000); // Capture frame every 1000ms (1 second)
 
-    setIntervalId(id); // Save the interval ID
-};
+        const data = await response.json();
+        setPrediction(data);
+      } catch (error) {
+        console.error("Error during prediction:", error);
+      }
+    }, 1000);
+
+    setIntervalId(id);
+  };
 
   const toggleStreaming = () => {
     setIsStreaming((prev) => {
       if (prev) {
-        // If stopping, clear the interval
         clearInterval(intervalId);
       } else {
-        // If starting, start streaming
         startStreaming();
       }
-      return !prev; // Toggle streaming state
+      return !prev;
     });
   };
 
@@ -72,14 +67,20 @@ export default function RealTimePrediction() {
   if (!permission.granted) {
     return (
       <View style={styles.container}>
-        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="Grant Permission" />
+        <Text style={styles.permissionText}>We need your permission to show the camera</Text>
+        <TouchableOpacity style={styles.button} onPress={requestPermission}>
+          <Text style={styles.buttonText}>Grant Permission</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 
   return (
     <View style={styles.container}>
+      <Icon name="info-outline" size={20} color="#333" marginLeft={7} marginTop={7} />
+      <Text style={styles.infoText}>
+        Point the camera at an object to see real-time predictions!
+      </Text>
       <Camera style={styles.camera} type={type} ref={cameraRef}>
         <View style={styles.overlay}>
           {prediction && (
@@ -91,7 +92,19 @@ export default function RealTimePrediction() {
           )}
         </View>
       </Camera>
-      <Button title={isStreaming ? "Stop Streaming" : "Start Streaming"} onPress={toggleStreaming} />
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={toggleStreaming}
+      >
+        <MaterialCommunityIcons 
+          name={isStreaming ? "stop" : "play"} 
+          size={24} 
+          color="white" 
+        />
+        <Text style={styles.buttonText}>
+          {isStreaming ? "Stop Streaming" : "Start Streaming"}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -100,9 +113,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: '#e8f5e997', // Light green background
   },
   camera: {
     flex: 1,
+    borderRadius: 10, // Rounded corners for the camera view
+    overflow: 'hidden', // Clip overflow
   },
   overlay: {
     position: 'absolute',
@@ -112,12 +128,51 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   predictionContainer: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.7)', // Dark overlay for better readability
     padding: 10,
     borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.5,
+    elevation: 5, // Android shadow effect
   },
   predictionText: {
     color: 'white',
     fontSize: 18,
+    fontWeight: 'bold',
+  },
+  permissionText: {
+    textAlign: 'center',
+    fontSize: 16,
+    marginBottom: 20,
+    color: '#333', // Darker text color
+  },
+  button: {
+    backgroundColor: '#4CAF50', // Custom button color
+    borderRadius: 10,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 10, // Space between icon and text
+  },
+  infoText: {
+    textAlign: 'center',
+    fontSize: 17,
+    marginBottom: 10,
+    color: '#333', // Darker text color
+    marginTop: 10,
+    fontStyle: 'italic',
   },
 });

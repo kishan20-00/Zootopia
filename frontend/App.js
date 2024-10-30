@@ -17,14 +17,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="animaldetect" component={AnimalDetect} />
-        <Stack.Screen name="realtimeanimaldetect" component={RealTimePrediction} />
-        <Stack.Screen name="diseasedetect" component={PredictionForm} />
-        <Stack.Screen name="behaviordetect" component={BehaviorDetection} />
-        <Stack.Screen name="realtimebehaviordetect" component={RealTimeBehaviorPrediction} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} />
+        <Stack.Screen name="Register" component={RegisterScreen} options={{ title: 'Register' }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
+        <Stack.Screen name="animaldetect" component={AnimalDetect} options={{ title: 'Animal Detection' }} />
+        <Stack.Screen name="realtimeanimaldetect" component={RealTimePrediction} options={{ title: 'Real-Time Animal Detection' }} />
+        <Stack.Screen name="diseasedetect" component={PredictionForm} options={{ title: 'Disease Detection' }} />
+        <Stack.Screen name="behaviordetect" component={BehaviorDetection} options={{ title: 'Behavior Detection' }} />
+        <Stack.Screen name="realtimebehaviordetect" component={RealTimeBehaviorPrediction} options={{ title: 'Real-Time Behavior Detection' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
